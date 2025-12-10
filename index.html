@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maestrum - Gesture Control for Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Syne:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ["Syne", "sans-serif"],
+              body: ["DM Sans", "sans-serif"],
+            },
+            colors: {
+              base: "#1E1B24",
+              accent: "#FF6B4A",
+              secondary: "#7000FF",
+              glass: "rgba(255,255,255,0.05)",
+              glassBorder: "rgba(255,255,255,0.1)",
+            },
+            backgroundImage: {
+              "cinematic-gradient":
+                "radial-gradient(circle at 50% 30%, rgba(255, 107, 74, 0.25) 0%, rgba(30, 27, 36, 1) 60%)",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "float-delayed": "float 8s ease-in-out infinite 1s",
+              "float-slow": "float 10s ease-in-out infinite 2s",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        background-color: #1e1b24;
+        color: #ffffff;
+        overflow-x: hidden;
+        font-family: "DM Sans", "Inter", system-ui, -apple-system, sans-serif;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e1b24;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ff6b4a;
+      }
+      /* .mask-fade {
+        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent);
+        mask-image: linear-gradient(to bottom, black 80%, transparent);
+      } */
+      .nav-glass {
+        background: rgba(30, 27, 36, 0.75);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
+      }
+      .bar {
+        width: 6px;
+        border-radius: 9999px 9999px 2px 2px;
+        background: linear-gradient(180deg, #ff6b4a 0%, #7000ff 100%);
+        transition: height 80ms ease;
+      }
+    </style>
+  </head>
+  <body class="bg-base text-white">
+    <div class="relative min-h-screen bg-cinematic-gradient">
+      <nav
+        id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-6 py-4 flex justify-center items-center"
+      >
+        <div
+          class="flex items-center justify-between w-full max-w-6xl rounded-full px-5 py-3 transition-all duration-500"
+          id="nav-shell"
+        >
+          <div class="text-xl font-heading font-bold tracking-tight flex items-center gap-2">
+MAESTRUM
+          </div>
+          <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a href="#features" class="text-white/70 hover:text-white transition-colors">Features</a>
+            <a href="#studio" class="text-white/70 hover:text-white transition-colors">Studio</a>
+            <a href="#pricing" class="text-white/70 hover:text-white transition-colors">Pricing</a>
+          </div>
+          <div class="hidden md:block">
+            <button
+              class="group relative px-6 py-2 rounded-full border border-white/20 hover:border-accent/50 bg-white/5 hover:bg-accent/10 transition-all duration-300"
+            >
+              <span class="text-sm font-bold text-white group-hover:text-accent transition-colors">
+                Join the waitlist ->
+              </span>
+            </button>
+          </div>
+          <button id="menu-toggle" class="md:hidden text-white p-2" aria-label="Toggle navigation">
+            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <div
+          id="mobile-menu"
+          class="absolute top-20 left-4 right-4 bg-[#1E1B24]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:hidden hidden flex-col gap-6 items-center z-40 shadow-2xl"
+        >
+          <a href="#features" class="text-lg font-heading text-white">Features</a>
+          <a href="#studio" class="text-lg font-heading text-white">Studio</a>
+          <a href="#pricing" class="text-lg font-heading text-white">Pricing</a>
+          <button class="w-full py-3 rounded-full bg-accent text-white font-bold">Join the waitlist</button>
+        </div>
+      </nav>
+
+      <section class="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center pt-28">
+        <div
+          class="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[80vh] bg-accent/20 blur-[120px] rounded-full pointer-events-none z-0"
+        ></div>
+        <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
+          <h1
+            class="text-[10vw] md:text-[18vw] font-heading font-extrabold text-white/80 leading-none tracking-tighter select-none mix-blend-overlay whitespace-nowrap"
+          >
+            MAESTRUM
+          </h1>
+        </div>
+
+        <div class="relative z-10 w-full max-w-5xl h-[60vh] md:h-[75vh] flex items-center justify-center mt-8 md:mt-0">
+          <div class="relative w-full h-full flex justify-center items-end">
+            <img
+              src="https://hperez.com.br/uploader/files/693973f1467f0.png"
+              alt="Futuristic Producer"
+              class="h-full object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] mask-fade"
+            />
+          </div>
+
+          <div
+            class="absolute top-[20%] left-[2%] md:left-[-6%] backdrop-blur-md bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-3 animate-float"
+          >
+            <div class="p-2 bg-accent/20 rounded-lg text-accent">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 18.5v-13m-4 9.75A4 4 0 0112 9h0a4 4 0 014 4.25V18a4 4 0 01-4 4h0a4 4 0 01-4-4v-.25z" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-white/50 uppercase tracking-widest">For Singers</div>
+              <div class="text-sm font-bold text-white">Control beats and instruments</div>
+            </div>
+          </div>
+
+          <div
+            class="absolute top-[40%] right-[2%] md:right-[-8%] backdrop-blur-md bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-3 animate-float-delayed"
+          >
+            <div class="p-2 bg-secondary/30 rounded-lg text-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-300" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 12h16M4 18h10M4 6h7" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-white/50 uppercase tracking-widest">For Live Performers</div>
+              <div class="text-sm font-bold text-white">Live music with your hands</div>
+            </div>
+          </div>
+
+          <div
+            class="absolute bottom-[18%] left-[6%] md:left-[-2%] backdrop-blur-md bg-white/5 border border-white/10 p-4 rounded-2xl flex items-center gap-3 animate-float-slow"
+          >
+            <div class="p-2 bg-green-500/20 rounded-lg text-green-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 19V6l12-3v13" />
+                <circle cx="6" cy="18" r="3" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-xs text-white/50 uppercase tracking-widest">For Producers</div>
+              <div class="text-sm font-bold text-white">Expressive automations and effects</div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="absolute bottom-10 w-full max-w-7xl px-6 flex flex-col md:flex-row justify-between items-end z-20 pointer-events-none"
+        >
+          <div class="max-w-md pointer-events-auto" >
+            <p class="text-lg md:text-xl text-white/80 leading-relaxed">
+Express yourself with your hands<br />
+
+            </p>
+          </div>
+
+          <!-- <div
+            class="flex items-center gap-4 mt-6 md:mt-0 pointer-events-auto bg-black/30 backdrop-blur-sm p-4 rounded-2xl border border-white/5"
+          >
+            <div class="text-4xl font-heading font-bold text-white">4.9</div>
+            <div class="flex flex-col">
+              <div class="flex text-yellow-500 gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
+                </svg>
+              </div>
+              <span class="text-xs text-white/60">Used by 50k+ Creators</span>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-base to-transparent z-10 pointer-events-none"></div>
+      </section>
+
+      <section id="features" class="py-24 px-6 relative z-10 bg-base">
+        <div class="max-w-7xl mx-auto">
+          <div class="mb-16">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">
+              Features: <span class="text-white/30">A new way to make music</span>
+            </h2>
+            <div class="h-1 w-20 bg-accent rounded-full"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+              class="group relative p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.05] hover:border-accent/30 transition-all duration-500 overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,rgba(255,107,74,0.15),transparent_70%)] pointer-events-none"
+              ></div>
+              <div class="relative z-10">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-[#1E1B24] border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-black/50"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 10h18M3 14h18M10 6h4m-4 12h4" />
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-heading font-bold mb-3 text-white group-hover:text-accent transition-colors">
+                    Works with any DAW
+                </h3>
+                <p class="text-white/60 leading-relaxed">
+                  Ableton, FL Studio, you name it. It uses MIDI to control everything.
+                </p>
+              </div>
+            </div>
+            <div
+              class="group relative p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.05] hover:border-accent/30 transition-all duration-500 overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,rgba(255,107,74,0.15),transparent_70%)] pointer-events-none"
+              ></div>
+              <div class="relative z-10">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-[#1E1B24] border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-black/50"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 9l4-4 4 4M8 15l4 4 4-4M4 12h16" />
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-heading font-bold mb-3 text-white group-hover:text-accent transition-colors">
+                  No Latency
+                </h3>
+                <p class="text-white/60 leading-relaxed">
+                  No latency, no delay. Just link your hands and start making music.
+                </p>
+              </div>
+            </div>
+            <div
+              class="group relative p-8 rounded-3xl bg-white/[0.03] border border-white/10 hover:bg-white/[0.05] hover:border-accent/30 transition-all duration-500 overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_center,rgba(255,107,74,0.15),transparent_70%)] pointer-events-none"
+              ></div>
+              <div class="relative z-10">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-[#1E1B24] border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-black/50"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M7 10l5 5 5-5M12 5v10" />
+                    <circle cx="12" cy="12" r="9" />
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-heading font-bold mb-3 text-white group-hover:text-accent transition-colors">
+                  No Extra Hardware Needed
+                </h3>
+                <p class="text-white/60 leading-relaxed">
+                  No gloves, sensors or expensive gear required. Use only your webcam.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="studio" class="py-24 relative overflow-hidden bg-black/30 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
+          <div class="mb-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-2">See the control in action</h2>
+            <p class="text-white/50">Check what Shonci built with Maestrum</p>
+          </div>
+          <div class="w-full max-w-4xl aspect-video relative bg-black/60 rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
+            <iframe
+              class="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/ysz5S6PUM-U"
+              title="Maestrum hand-tracking demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>  
+        </div>
+      </section>
+
+      <section id="pricing" class="py-32 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#7000FF]/20 via-base to-[#FF6B4A]/10 opacity-60"></div>
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 blur-[150px] rounded-full pointer-events-none"
+        ></div>
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+          <h2 class="text-5xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">
+            Join the <br />
+            Maestrum waitlist.
+          </h2>
+          <div class="mt-16 relative">
+            <div
+              class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[3rem] p-12 md:p-16 flex flex-col items-center shadow-2xl relative overflow-hidden group"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              ></div>
+              <div
+                class="inline-block px-4 py-1 rounded-full border border-accent/50 bg-accent/10 text-accent text-sm font-bold uppercase tracking-wider mb-6"
+              >
+                Early Access
+              </div>
+              <div class="flex flex-col items-center gap-2 mb-8">
+                <span class="text-3xl md:text-4xl font-heading font-bold text-white">Be first in line</span>
+                <span class="text-base text-white/60">Secure your spot before launch.</span>
+              </div>
+              <ul class="flex flex-col gap-4 mb-12 text-left w-full max-w-xs">
+                <li class="flex items-center gap-3 text-white/80">
+                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </span>
+                  Priority onboarding when beta opens
+                </li>
+                <li class="flex items-center gap-3 text-white/80">
+                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </span>
+                  Early feature access & feedback loop
+                </li>
+                <li class="flex items-center gap-3 text-white/80">
+                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </span>
+                  Discounted price when beta opens
+                </li>
+                <li class="flex items-center gap-3 text-white/80">
+                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </span>
+                  Unlimited gesture mapping
+                </li>
+              </ul>
+              <button
+                class="w-full max-w-sm py-5 rounded-full bg-white text-base font-heading font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all duration-300"
+              >
+                Join the waitlist
+              </button>
+              <p class="mt-6 text-sm text-white/40">Free to sign up. Get notified first.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- <section id="pricing" class="py-32 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#7000FF]/20 via-base to-[#FF6B4A]/10 opacity-60"></div>
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 blur-[150px] rounded-full pointer-events-none"
+        ></div>
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+          <h2 class="text-5xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">
+            Unlock your <br />
+            full potential.
+          </h2>
+          <div class="mt-16 relative">
+            <div
+              class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[3rem] p-12 md:p-16 flex flex-col items-center shadow-2xl relative overflow-hidden group"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              ></div>
+              <div
+                class="inline-block px-4 py-1 rounded-full border border-accent/50 bg-accent/10 text-accent text-sm font-bold uppercase tracking-wider mb-6"
+              >
+                Lifetime License
+              </div>
+              <div class="flex items-baseline gap-2 mb-8">
+                <span class="text-6xl md:text-7xl font-heading font-bold text-white">$79</span>
+                <span class="text-xl text-white/60">one-time</span>
+              </div>
+              <ul class="flex flex-col gap-4 mb-12 text-left w-full max-w-xs">
+                <li class="flex items-center gap-3 text-white/80">
+                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </span>
+                  Works with any DAW
+                </li>
+                <li class="flex items-center gap-3 text-white/80">
+                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </span>
+                  Webcam-Based Control
+                </li>
+                <li class="flex items-center gap-3 text-white/80">
+                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </span>
+MacOS and Windows support
+                </li>
+                <li class="flex items-center gap-3 text-white/80">
+                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6L9 17l-5-5" />
+                    </svg>
+                  </span>
+
+Unlimited Gesture Mapping
+                </li>
+              </ul>
+              <button
+                class="w-full max-w-sm py-5 rounded-full bg-white text-base font-heading font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all duration-300"
+              >
+                Get Maestrum Today
+              </button>
+              <p class="mt-6 text-sm text-white/40">Pay once, own it forever.</p>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <footer class="py-12 border-t border-white/5 bg-[#16141a] relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div class="text-xl font-heading font-bold text-white/50">
+            <span class="text-accent/50">Mae</span>strum
+          </div>
+          <div class="flex gap-8 text-sm text-white/40 font-medium">
+            <a href="#" class="hover:text-white transition-colors">Privacy</a>
+            <a href="#" class="hover:text-white transition-colors">Terms</a>
+            <a href="#" class="hover:text-white transition-colors">Twitter</a>
+            <a href="#" class="hover:text-white transition-colors">Instagram</a>
+          </div>
+          <div class="text-sm text-white/30">Made for Creators. © 2025.</div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      const navShell = document.getElementById("nav-shell");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuToggle = document.getElementById("menu-toggle");
+      let isMenuOpen = false;
+
+      const toggleMenu = () => {
+        isMenuOpen = !isMenuOpen;
+        mobileMenu.classList.toggle("hidden", !isMenuOpen);
+        menuToggle.setAttribute("aria-expanded", String(isMenuOpen));
+        const icon = document.getElementById("menu-icon");
+        icon.innerHTML = isMenuOpen
+          ? '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />'
+          : '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />';
+      };
+
+      const handleScroll = () => {
+        const scrolled = window.scrollY > 50;
+        navShell.classList.toggle("nav-glass", scrolled);
+      };
+
+      handleScroll();
+
+      window.addEventListener("scroll", handleScroll);
+      menuToggle.addEventListener("click", toggleMenu);
+      mobileMenu.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", () => {
+          isMenuOpen = false;
+          mobileMenu.classList.add("hidden");
+        })
+      );
+    </script>
+  </body>
+</html>
