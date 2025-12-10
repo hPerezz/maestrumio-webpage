@@ -5,17 +5,7 @@ This repository contains the static marketing page for **Maestrum**, a gesture-b
 ## What’s inside
 - `index.html`: the full landing page markup, inline Tailwind config, and a small script for nav scroll styling and mobile menu toggle.
 
-## Preview locally
-No build step is required. Open the page directly or serve it with any static server:
 
-```bash
-# option 1: open directly (macOS)
-open index.html
-
-# option 2: simple static server (python)
-python3 -m http.server 3000
-open http://localhost:3000/index.html
-```
 
 ## Page highlights
 - Hero with brand, 3 persona callouts, and CTA to join the waitlist.
