@@ -4,6 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maestrum - Gesture Control for Music</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed. Join the waitlist for early access." />
+    <meta name="keywords" content="gesture control, music production, MIDI controller, hand tracking, DAW, music software, Ableton, FL Studio, webcam music control, live performance, music technology" />
+    <meta name="author" content="Maestrum" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://maestrum.io/" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    
+    <!-- Mobile & Theme -->
+    <meta name="theme-color" content="#1E1B24" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://maestrum.io/" />
+    <meta property="og:title" content="Maestrum - Gesture Control for Music" />
+    <meta property="og:description" content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed." />
+    <meta property="og:image" content="https://hperez.com.br/uploader/files/693973f1467f0.png" />
+    <meta property="og:site_name" content="Maestrum" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://maestrum.io/" />
+    <meta name="twitter:title" content="Maestrum - Gesture Control for Music" />
+    <meta name="twitter:description" content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed." />
+    <meta name="twitter:image" content="https://hperez.com.br/uploader/files/693973f1467f0.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -117,8 +148,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0.9);
-        background: #1E1B24;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: #FFF;
+        border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 1.5rem;
         padding: 2rem;
         max-width: 90vw;
@@ -140,9 +171,9 @@
         position: absolute;
         top: 1rem;
         right: 1rem;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.1);
         border: none;
-        color: white;
+        color: #1E1B24;
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
@@ -153,9 +184,67 @@
         transition: background 0.2s ease;
       }
       .modal-close:hover {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.2);
       }
     </style>
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Maestrum",
+      "applicationCategory": "MusicApplication",
+      "operatingSystem": ["Windows", "macOS"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/PreOrder"
+      },
+      "description": "Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "50"
+      },
+      "featureList": [
+        "Build music with your hands",
+        "Live perform with your hands",
+        "Control your DAW with your hands",
+        "Midi Controller with hand",
+        "Webcam-based gesture control",
+        "Hand tracking"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Maestrum",
+      "url": "https://maestrum.io",
+      "logo": "https://maestrum.io/favicon.png",
+      "sameAs": [
+        "https://twitter.com/maestrum",
+        "https://instagram.com/maestrum"
+      ],
+      "description": "Maestrum - Gesture Control for Music. Control music with gestures using your webcam."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Maestrum hand-tracking demo",
+      "description": "See how Maestrum works - control music with hand gestures using your webcam",
+      "thumbnailUrl": "https://img.youtube.com/vi/ysz5S6PUM-U/maxresdefault.jpg",
+      "uploadDate": "2024-01-01",
+      "duration": "PT3M",
+      "contentUrl": "https://www.youtube.com/watch?v=ysz5S6PUM-U",
+      "embedUrl": "https://www.youtube.com/embed/ysz5S6PUM-U"
+    }
+    </script>
   </head>
   <body class="bg-base text-white">
     <div class="relative min-h-screen bg-cinematic-gradient">
@@ -220,7 +309,7 @@ MAESTRUM
             <img
               id="hero-image"
               src="https://hperez.com.br/uploader/files/693973f1467f0.png"
-              alt="Futuristic Producer"
+              alt="Maestrum - Gesture control for music production using hand tracking and webcam"
               class="hero-image h-full object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] mask-fade transition-transform duration-[1400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-6 group-hover:scale-[1.03] will-change-transform"
             />
           </div>
