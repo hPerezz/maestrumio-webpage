@@ -98,6 +98,63 @@
         transform: translateY(0) scale(1);
         filter: blur(0);
       }
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .modal-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        background: #1E1B24;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        max-width: 90vw;
+        width: 100%;
+        max-width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+        z-index: 1001;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      }
+      .modal-overlay.active .modal-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: white;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease;
+      }
+      .modal-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
     </style>
   </head>
   <body class="bg-base text-white">
@@ -120,6 +177,7 @@ MAESTRUM
           </div>
           <div class="hidden md:block">
             <button
+              id="waitlist-btn-nav"
               class="group relative px-6 py-2 rounded-full border border-white/20 hover:border-accent/50 bg-white/5 hover:bg-accent/10 transition-all duration-300"
             >
               <span class="text-sm font-bold text-white group-hover:text-accent transition-colors">
@@ -141,7 +199,7 @@ MAESTRUM
           <a href="#features" class="text-lg font-heading text-white">Features</a>
           <a href="#studio" class="text-lg font-heading text-white">Demo</a>
           <a href="#pricing" class="text-lg font-heading text-white">Pricing</a>
-          <button class="w-full py-3 rounded-full bg-accent text-white font-bold">Join the waitlist</button>
+          <button id="waitlist-btn-mobile" class="w-full py-3 rounded-full bg-accent text-white font-bold">Join the waitlist</button>
         </div>
       </nav>
 
@@ -426,6 +484,7 @@ Express yourself with your hands<br />
                 </li>
               </ul>
               <button
+                id="waitlist-btn-pricing"
                 class="w-full max-w-sm py-5 rounded-full bg-white text-base font-heading font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all duration-300"
               >
                 Join the waitlist
@@ -527,6 +586,31 @@ Unlimited Gesture Mapping
       </footer>
     </div>
 
+    <!-- Waitlist Modal -->
+    <div id="waitlist-modal" class="modal-overlay">
+      <div class="modal-content">
+        <button id="modal-close" class="modal-close" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <iframe 
+          data-tally-src="https://tally.so/embed/QK1zdG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+          loading="lazy" 
+          width="100%" 
+          height="498" 
+          frameborder="0" 
+          marginheight="0" 
+          marginwidth="0" 
+          title="Join Maestrum Waitlist">
+        </iframe>
+      </div>
+    </div>
+
+    <script>
+      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+    </script>
+
     <script>
       const navbar = document.getElementById("navbar");
       const navShell = document.getElementById("nav-shell");
@@ -582,6 +666,59 @@ Unlimited Gesture Mapping
           heroImage.addEventListener("error", markLoaded, { once: true });
         }
       }
+
+      // Waitlist Modal
+      const waitlistModal = document.getElementById("waitlist-modal");
+      const modalClose = document.getElementById("modal-close");
+      const waitlistBtnNav = document.getElementById("waitlist-btn-nav");
+      const waitlistBtnMobile = document.getElementById("waitlist-btn-mobile");
+      const waitlistBtnPricing = document.getElementById("waitlist-btn-pricing");
+
+      const openModal = () => {
+        waitlistModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeModal = () => {
+        waitlistModal.classList.remove("active");
+        document.body.style.overflow = "";
+      };
+
+      // Open modal when clicking any waitlist button
+      if (waitlistBtnNav) {
+        waitlistBtnNav.addEventListener("click", openModal);
+      }
+      if (waitlistBtnMobile) {
+        waitlistBtnMobile.addEventListener("click", () => {
+          openModal();
+          // Close mobile menu if open
+          if (isMenuOpen) {
+            toggleMenu();
+          }
+        });
+      }
+      if (waitlistBtnPricing) {
+        waitlistBtnPricing.addEventListener("click", openModal);
+      }
+
+      // Close modal
+      if (modalClose) {
+        modalClose.addEventListener("click", closeModal);
+      }
+
+      // Close modal when clicking outside
+      waitlistModal.addEventListener("click", (e) => {
+        if (e.target === waitlistModal) {
+          closeModal();
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && waitlistModal.classList.contains("active")) {
+          closeModal();
+        }
+      });
     </script>
   </body>
 </html>
