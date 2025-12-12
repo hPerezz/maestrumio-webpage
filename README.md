@@ -18,3 +18,4 @@ This repository contains the static marketing page for **Maestrum**, a gesture-b
 - Tailwind is pulled from the CDN and extended via `tailwind.config` in `index.html` for custom fonts, colors, animations, and gradients.
 - JavaScript in `index.html` handles navbar styling on scroll and the mobile menu toggle; no external dependencies beyond Tailwind and the YouTube embed.
 
+
