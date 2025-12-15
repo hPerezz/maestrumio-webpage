@@ -19,3 +19,5 @@ This repository contains the static marketing page for **Maestrum**, a gesture-b
 - JavaScript in `index.html` handles navbar styling on scroll and the mobile menu toggle; no external dependencies beyond Tailwind and the YouTube embed.
 
 
+
+
