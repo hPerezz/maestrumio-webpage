@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You for Your Purchase - Maestrum</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Thank you for joining the Maestrum Beta Team. Download the macOS beta and help shape the future of gesture-controlled music." />
+    <meta name="keywords" content="Maestrum, beta, download, gesture control, music production, MIDI controller" />
+    <meta name="author" content="Maestrum" />
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    
+    <!-- Mobile & Theme -->
+    <meta name="theme-color" content="#1E1B24" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Syne:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ["Syne", "sans-serif"],
+              body: ["DM Sans", "sans-serif"],
+            },
+            colors: {
+              base: "#1E1B24",
+              accent: "#FF6B4A",
+              secondary: "#7000FF",
+              glass: "rgba(255,255,255,0.05)",
+              glassBorder: "rgba(255,255,255,0.1)",
+            },
+            backgroundImage: {
+              "cinematic-gradient":
+                "radial-gradient(circle at 50% 30%, rgba(255, 107, 74, 0.25) 0%, rgba(30, 27, 36, 1) 60%)",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "float-delayed": "float 8s ease-in-out infinite 1s",
+              "float-slow": "float 10s ease-in-out infinite 2s",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        background-color: #1e1b24;
+        color: #ffffff;
+        overflow-x: hidden;
+        font-family: "DM Sans", "Inter", system-ui, -apple-system, sans-serif;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e1b24;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #ff6b4a;
+      }
+      .nav-glass {
+        background: rgba(30, 27, 36, 0.75);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
+      }
+      a {
+        color: #FF6B4A;
+        text-decoration: underline;
+      }
+      a:hover {
+        color: #ff8c73;
+      }
+      blockquote {
+        border-left: 4px solid #FF6B4A;
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="bg-base text-white">
+    <div class="relative min-h-screen bg-cinematic-gradient">
+      <nav
+        id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-6 py-4 flex justify-center items-center"
+      >
+        <div
+          class="flex items-center justify-between w-full max-w-6xl rounded-full px-5 py-3 transition-all duration-500"
+          id="nav-shell"
+        >
+          <a href="index.html" class="text-xl font-heading font-bold tracking-tight flex items-center gap-2">
+            MAESTRUM
+          </a>
+          <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a href="index.html#features" class="text-white/70 hover:text-white transition-colors">Features</a>
+            <a href="index.html#studio" class="text-white/70 hover:text-white transition-colors">Demo</a>
+            <a href="index.html#pricing" class="text-white/70 hover:text-white transition-colors">Beta</a>
+          </div>
+          <div class="hidden md:block">
+            <a href="index.html"
+              class="group relative px-6 py-2 rounded-full border border-white/20 hover:border-accent/50 bg-white/5 hover:bg-accent/10 transition-all duration-300 inline-block"
+            >
+              <span class="text-sm font-bold text-white group-hover:text-accent transition-colors">
+                Back to Home ->
+              </span>
+            </a>
+          </div>
+          <a href="index.html" id="menu-toggle" class="md:hidden text-white p-2" aria-label="Go to home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+          </a>
+        </div>
+      </nav>
+
+      <section class="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center pt-28 pb-16">
+        <div
+          class="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[80vh] bg-accent/20 blur-[120px] rounded-full pointer-events-none z-0"
+        ></div>
+
+        <div class="relative z-10 w-full max-w-4xl px-6 py-12">
+          <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+            
+            <!-- Main Heading -->
+            <h1 class="text-4xl md:text-5xl font-heading font-bold mb-8 text-white">
+              Thank you for your purchase
+            </h1>
+
+            <!-- Personal Message -->
+            <div class="mb-12 text-lg md:text-xl text-white/90 leading-relaxed space-y-4">
+              <p>Hey, Perez here.</p>
+              <p>
+                First of all: <strong class="text-white font-bold">thank you for trusting Maestrum.</strong><br />
+                You're not just a user, you're officially part of the <strong class="text-white font-bold">Maestrum Beta Team</strong>.
+              </p>
+              <p>
+                This project exists because people like you believe in new ways of making music, experimenting with technology, and supporting indie creators early. That honestly means a lot to me.
+              </p>
+            </div>
+
+            <hr class="border-white/10 my-12" />
+
+            <!-- What this beta means -->
+            <div class="mb-12">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
+                🎛️ What this beta means
+              </h2>
+              <div class="space-y-4 text-white/80 leading-relaxed">
+                <p>
+                  Maestrum is still evolving. Things may break. Some gestures might feel off. And that's <strong class="text-white font-bold">expected</strong>.
+                </p>
+                <p>What really matters is this:</p>
+                <blockquote class="text-white/90">
+                  Every bug you report and every suggestion you send directly shapes the future of Maestrum.
+                </blockquote>
+                <p>
+                  If something feels wrong, confusing, or simply <em>could be better</em>, please email me. I read <strong class="text-white font-bold">everything</strong>.
+                </p>
+                <div class="mt-6 p-6 bg-white/5 rounded-2xl border border-white/10">
+                  <p class="text-sm text-white/60 uppercase tracking-wider mb-2">📩 Feedback & bug reports:</p>
+                  <p class="text-lg font-bold text-white">
+                    <a href="mailto:hperez@unifei.edu.br" class="text-accent hover:text-accent/80 transition-colors">
+                      hperez@unifei.edu.br
+                    </a>
+                  </p>
+                  <p class="text-sm text-white/60 mt-2">(or just reply to the purchase email)</p>
+                </div>
+              </div>
+            </div>
+
+            <hr class="border-white/10 my-12" />
+
+            <!-- Download Section -->
+            <div class="mb-12">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
+                ⬇️ Download Maestrum (macOS Apple Silicon)
+              </h2>
+              <div class="space-y-4 text-white/80 leading-relaxed">
+                <p>
+                  👉 <a href="https://github.com/hPerezz/maestrumio-webpage/releases/download/1.0.1/MAESTRUM-1.0.1-arm64-mac.zip" class="text-accent font-bold hover:text-accent/80 transition-colors text-xl">Download the macOS Beta</a>
+                </p>
+                <div class="mt-6 p-6 bg-white/5 rounded-2xl border border-white/10">
+                  <blockquote class="border-none p-0 m-0 text-white/70">
+                    macOS may warn you that the app is from an unidentified developer.<br />
+                    This is normal during beta. Maestrum is not code-signed yet.
+                  </blockquote>
+                </div>
+                <p class="mt-4">
+                  I'll guide you through this step-by-step if needed. Just reach out.
+                </p>
+              </div>
+            </div>
+
+            <hr class="border-white/10 my-12" />
+
+            <!-- What we're building -->
+            <div class="mb-12">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
+                🧪 What we're actively building
+              </h2>
+              <p class="text-white/70 mb-6">Here's what's currently in progress, so you know exactly what to expect:</p>
+              
+              <div class="space-y-8">
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                  <h3 class="text-xl font-heading font-bold mb-3 text-white">
+                    👍 Thumb gesture recognition
+                  </h3>
+                  <p class="text-white/80 leading-relaxed">
+                    Thumb detection is <strong class="text-white font-bold">not perfect yet</strong>.<br />
+                    I'm actively improving precision and stability, and your real-world usage helps a lot here.
+                  </p>
+                </div>
+
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                  <h3 class="text-xl font-heading font-bold mb-3 text-white">
+                    🔐 Code signing
+                  </h3>
+                  <p class="text-white/80 leading-relaxed">
+                    The app is not signed yet, which is why macOS may flag it.<br />
+                    This will be resolved as we move out of beta and into a wider release.
+                  </p>
+                </div>
+
+                <div class="p-6 bg-white/5 rounded-2xl border border-white/10">
+                  <h3 class="text-xl font-heading font-bold mb-3 text-white">
+                    🔄 Auto-updates
+                  </h3>
+                  <p class="text-white/80 leading-relaxed">
+                    Updates are <strong class="text-white font-bold">manual for now</strong> (via the website).<br />
+                    Automatic updates are planned for a future release.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <hr class="border-white/10 my-12" />
+
+            <!-- You're early -->
+            <div class="mb-8">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold mb-6 text-white">
+                🤝 You're early, and that matters
+              </h2>
+              <div class="space-y-4 text-white/80 leading-relaxed">
+                <p>Being a beta tester means:</p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                  <li>You influence product decisions</li>
+                  <li>You help define UX, privacy perception, and trust</li>
+                  <li>You'll receive <strong class="text-white font-bold">lifetime access</strong> as Maestrum grows</li>
+                </ul>
+                <p class="mt-6">
+                  If anything goes wrong, please don't get frustrated, just tell me.<br />
+                  We're building this <strong class="text-white font-bold">together</strong>.
+                </p>
+                <p class="mt-6 text-lg">
+                  Thanks again for being here.
+                </p>
+                <div class="mt-8 pt-6 border-t border-white/10">
+                  <p class="text-white font-bold">- Perez</p>
+                  <p class="text-white/70">Founder & Creator of Maestrum</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-base to-transparent z-10 pointer-events-none"></div>
+      </section>
+
+      <footer class="py-12 border-t border-white/5 bg-[#16141a] relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div class="text-xl font-heading font-bold text-white/50">
+            <span class="text-accent/50">MAESTRUM</span>
+          </div>
+          <div class="flex flex-col items-center gap-2 text-sm">
+            <div class="flex gap-6 text-white/40 font-medium">
+              <a href="https://twitter.com/pamonhero" class="hover:text-white transition-colors">Twitter</a>
+              <a href="https://instagram.com/maestrum.io" class="hover:text-white transition-colors">Instagram</a>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 text-xs text-white/40">
+              <a href="terms.html" class="hover:text-white transition-colors">Terms &amp; Conditions</a>
+              <span class="hidden md:inline text-white/30">•</span>
+              <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+              <span class="hidden md:inline text-white/30">•</span>
+              <a href="refund.html" class="hover:text-white transition-colors">Refund Policy</a>
+            </div>
+          </div>
+          <div class="text-sm text-white/30 text-center md:text-right">
+            Made for Creators. © 2025. MAESTRUM
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      const navShell = document.getElementById("nav-shell");
+
+      const handleScroll = () => {
+        const scrolled = window.scrollY > 50;
+        navShell.classList.toggle("nav-glass", scrolled);
+      };
+
+      handleScroll();
+      window.addEventListener("scroll", handleScroll);
+    </script>
+  </body>
+</html>
