@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Available: v1.0.5 - Maestrum</title>
+    
+    <meta name="description" content="Download the latest update for Maestrum. Better performance, auto-updates, and new features for our beta users." />
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <link rel="icon" type="image/png" href="favicon.png" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=Syne:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ["Syne", "sans-serif"],
+              body: ["DM Sans", "sans-serif"],
+            },
+            colors: {
+              base: "#1E1B24",
+              accent: "#FF6B4A",
+              secondary: "#7000FF",
+              glass: "rgba(255,255,255,0.05)",
+              glassBorder: "rgba(255,255,255,0.1)",
+            },
+            backgroundImage: {
+              "cinematic-gradient":
+                "radial-gradient(circle at 50% 30%, rgba(255, 107, 74, 0.25) 0%, rgba(30, 27, 36, 1) 60%)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root { color-scheme: dark; }
+      body { background-color: #1e1b24; color: #ffffff; font-family: "DM Sans", sans-serif; }
+      .nav-glass {
+        background: rgba(30, 27, 36, 0.75);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .feature-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 107, 74, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-base text-white">
+    <div class="relative min-h-screen bg-cinematic-gradient">
+      <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 py-4 flex justify-center items-center">
+        <div class="flex items-center justify-between w-full max-w-6xl rounded-full px-5 py-3 transition-all duration-500" id="nav-shell">
+          <a href="index.html" class="text-xl font-heading font-bold tracking-tight">MAESTRUM</a>
+          <a href="index.html" class="group relative px-6 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-accent/10 transition-all duration-300">
+            <span class="text-sm font-bold text-white group-hover:text-accent">Back to Home</span>
+          </a>
+        </div>
+      </nav>
+
+      <section class="relative w-full min-h-screen flex flex-col items-center pt-32 pb-16">
+        <div class="relative z-10 w-full max-w-4xl px-6">
+          <div class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+              <div>
+                <span class="text-accent font-bold tracking-widest uppercase text-sm">Beta Update</span>
+                <h1 class="text-4xl md:text-5xl font-heading font-bold text-white mt-2">Maestrum v1.0.5</h1>
+              </div>
+              <div class="text-white/50 font-medium pb-1">Released January 2025</div>
+            </div>
+
+            <div class="mb-10 text-lg text-white/90 leading-relaxed space-y-4">
+              <p>Hi,</p>
+              <p>This update is specifically for our beta users. <strong>Good news:</strong> this is the last time you’ll need to update manually (delete the old .app and replace it with the new one).</p>
+              <p>From now on, updates will happen automatically thanks to <span class="text-white font-bold">auto-update and code signing</span>.</p>
+              <p>Also important: performance has improved a lot in this version. Tracking feels noticeably faster, smoother, and more responsive overall.</p>
+            </div>
+
+            <div class="mb-12 p-8 bg-accent/10 border border-accent/20 rounded-2xl text-center">
+              <h3 class="text-xl font-bold mb-6">Ready to upgrade?</h3>
+              
+              <button id="download-btn"
+                      class="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-white font-bold py-4 px-8 rounded-full text-lg transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-accent/20">
+                <i class="fas fa-download"></i> Download Update (macOS)
+              </button>
+              
+              <div id="download-feedback" class="mt-5 text-sm font-medium opacity-0 transition-opacity duration-300">
+                <!-- Feedback messages appear here -->
+              </div>
+              
+              <p class="text-white/40 text-xs mt-6 uppercase tracking-widest">v1.0.5 • Apple Silicon (ARM64)</p>
+            </div>
+
+            <hr class="border-white/10 my-12" />
+
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+              <div class="feature-card p-6 rounded-2xl">
+                <h3 class="text-accent font-bold mb-4 flex items-center gap-2">
+                  <i class="fas fa-plus-circle"></i> New Features
+                </h3>
+                <ul class="space-y-3 text-white/80 text-sm">
+                  <li class="flex gap-2"><span>•</span> Choose MIDI channel + keyboard shortcuts</li>
+                  <li class="flex gap-2"><span>•</span> Bypass space bar option</li>
+                  <li class="flex gap-2"><span>•</span> Styling options (color and width)</li>
+                  <li class="flex gap-2"><span>•</span> Code signing + auto-updater</li>
+                </ul>
+              </div>
+
+              <div class="feature-card p-6 rounded-2xl">
+                <h3 class="text-blue-400 font-bold mb-4 flex items-center gap-2">
+                  <i class="fas fa-rocket"></i> Improvements
+                </h3>
+                <ul class="space-y-3 text-white/80 text-sm">
+                  <li class="flex gap-2"><span>•</span> Much better thumb tracking</li>
+                  <li class="flex gap-2"><span>•</span> GPU optimization for hand tracking</li>
+                  <li class="flex gap-2"><span>•</span> General performance & rendering</li>
+                  <li class="flex gap-2"><span>•</span> Fixed color/width styling bugs</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mb-12">
+              <h2 class="text-2xl font-heading font-bold mb-6 text-white">Coming next</h2>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-white/70">XY Control</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-white/70">Reset to Defaults</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-white/70">Windows Support</span>
+              </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10">
+              <p class="text-white/70 italic">
+                Thanks again for being part of the beta and helping shape the product :)
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <footer class="py-12 border-t border-white/5 bg-[#16141a]">
+        <div class="max-w-7xl mx-auto px-6 text-center text-white/30 text-sm">
+          Made for Creators. © 2026. MAESTRUM
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Navbar scroll effect
+      const navShell = document.getElementById("nav-shell");
+      window.addEventListener("scroll", () => {
+        navShell.classList.toggle("nav-glass", window.scrollY > 50);
+      });
+
+      // Download with feedback
+      const downloadBtn = document.getElementById("download-btn");
+      const feedback = document.getElementById("download-feedback");
+
+      const DOWNLOAD_URL = "https://github.com/hPerezz/maestrumio-webpage/releases/download/1.0.5/Maestrum-1.0.5-arm64-mac.zip";
+
+      downloadBtn.addEventListener("click", () => {
+        downloadBtn.disabled = true;
+        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Starting...';
+
+        feedback.textContent = "Download started — check your downloads folder";
+        feedback.className = "mt-5 text-sm font-medium text-white/90 opacity-100 transition-opacity duration-300";
+
+        // Trigger real download
+        const link = document.createElement("a");
+        link.href = DOWNLOAD_URL;
+        link.download = "Maestrum-1.0.5-arm64-mac.zip";
+        link.style.display = "none";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        // Success feedback
+        setTimeout(() => {
+          feedback.textContent = "Download should be in progress ✓ (may take a moment for large files)";
+          feedback.className = "mt-5 text-sm font-medium text-green-400 opacity-100 transition-opacity duration-300";
+
+          // Reset UI after 7 seconds
+          setTimeout(() => {
+            downloadBtn.disabled = false;
+            downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download Update (macOS)';
+            feedback.className = "mt-5 text-sm font-medium opacity-0 transition-opacity duration-500";
+          }, 7000);
+        }, 1400);
+      });
+    </script>
+  </body>
+</html>
