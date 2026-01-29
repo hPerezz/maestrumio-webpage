@@ -6,7 +6,7 @@
     <title>Maestrum - Gesture Control for Music</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed. Join the waitlist for early access." />
+    <meta name="description" content="Express yourself with your hands. Control music with gestures using your webcam. $30 one-time. Works on macOS & Windows with any DAW. No latency, no extra hardware—just your webcam. Buy now." />
     <meta name="keywords" content="gesture control, music production, MIDI controller, hand tracking, DAW, music software, Ableton, FL Studio, webcam music control, live performance, music technology" />
     <meta name="author" content="Maestrum" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -25,7 +25,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://maestrum.io/" />
     <meta property="og:title" content="Maestrum - Gesture Control for Music" />
-    <meta property="og:description" content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed." />
+now    <meta property="og:description" content="Express yourself with your hands. $30 one-time. Gesture control for music on macOS & Windows. Works with any DAW—just your webcam. Buy now." />
     <meta property="og:image" content="https://hperez.com.br/uploader/files/693973f1467f0.png" />
     <meta property="og:site_name" content="Maestrum" />
     
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://maestrum.io/" />
     <meta name="twitter:title" content="Maestrum - Gesture Control for Music" />
-    <meta name="twitter:description" content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed." />
+    <meta name="twitter:description" content="Express yourself with your hands. $30 one-time. Gesture control for music on macOS & Windows. Works with any DAW—just your webcam. Buy now." />
     <meta name="twitter:image" content="https://hperez.com.br/uploader/files/693973f1467f0.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -200,9 +200,10 @@
       "operatingSystem": ["Windows", "macOS"],
       "offers": {
         "@type": "Offer",
-        "price": "0",
+        "price": "30",
         "priceCurrency": "USD",
-        "availability": "https://schema.org/PreOrder"
+        "availability": "https://schema.org/InStock",
+        "url": "https://maestrum.gumroad.com/l/buy-maestrum?wanted=true"
       },
       "description": "Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed.",
       "aggregateRating": {
@@ -264,17 +265,16 @@ MAESTRUM
           <div class="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href="#features" class="text-white/70 hover:text-white transition-colors">Features</a>
             <a href="#studio" class="text-white/70 hover:text-white transition-colors">Demo</a>
-            <a href="#pricing" class="text-white/70 hover:text-white transition-colors">Beta</a>
+            <a href="#pricing" class="text-white/70 hover:text-white transition-colors">Pricing</a>
           </div>
           <div class="hidden md:block">
-            <button
-              id="waitlist-btn-nav"
-              class="group relative px-6 py-2 rounded-full border border-white/20 hover:border-accent/50 bg-white/5 hover:bg-accent/10 transition-all duration-300"
+            <a
+              href="https://maestrum.gumroad.com/l/buy-maestrum?wanted=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative inline-flex px-6 py-2.5 rounded-full border-2 border-accent bg-accent hover:bg-accent/90 hover:border-accent/90 text-white font-bold text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,107,74,0.5)]"
             >
-              <span class="text-sm font-bold text-white group-hover:text-accent transition-colors">
-                Join the waitlist ->
-              </span>
-            </button>
+Download Now            </a>
           </div>
           <button id="menu-toggle" class="md:hidden text-white p-2" aria-label="Toggle navigation">
             <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -290,7 +290,7 @@ MAESTRUM
           <a href="#features" class="text-lg font-heading text-white">Features</a>
           <a href="#studio" class="text-lg font-heading text-white">Demo</a>
           <a href="#pricing" class="text-lg font-heading text-white">Pricing</a>
-          <button id="waitlist-btn-mobile" class="w-full py-3 rounded-full bg-accent text-white font-bold">Join the waitlist</button>
+          <a href="https://maestrum.gumroad.com/l/buy-maestrum?wanted=true" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-full bg-accent text-white font-bold text-center hover:bg-accent/90 transition-colors">Buy now — $30</a>
         </div>
       </nav>
 
@@ -317,7 +317,7 @@ MAESTRUM
           </div>
 
           <div
-            class="absolute top-[20%] left-[2%] md:left-[-6%] backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-4 animate-float text-center transition-all duration-500 hover:bg-black/50"
+            class="absolute top-[20%] left-[2%] md:left-[-6%] hidden md:flex backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex-col items-center gap-4 animate-float text-center transition-all duration-500 hover:bg-black/50"
           >
             <div class="p-4 bg-accent/20 rounded-lg text-accent flex items-center justify-center">
               <i class="fas fa-microphone text-3xl"></i>
@@ -329,7 +329,7 @@ MAESTRUM
           </div>
 
           <div
-            class="absolute top-[40%] right-[2%] md:right-[-8%] backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-4 animate-float-delayed text-center transition-all duration-500 hover:bg-black/50"
+            class="absolute top-[40%] right-[2%] md:right-[-8%] hidden md:flex backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex-col items-center gap-4 animate-float-delayed text-center transition-all duration-500 hover:bg-black/50"
           >
             <div class="p-4 bg-secondary/30 rounded-lg text-secondary flex items-center justify-center">
               <i class="fas fa-sliders-h text-3xl text-purple-300"></i>
@@ -341,7 +341,7 @@ MAESTRUM
           </div>
 
           <div
-            class="absolute bottom-[18%] left-[6%] md:left-[-2%] backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col items-center gap-4 animate-float-slow text-center transition-all duration-500 hover:bg-black/50"
+            class="absolute bottom-[18%] left-[6%] md:left-[-2%] hidden md:flex backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex-col items-center gap-4 animate-float-slow text-center transition-all duration-500 hover:bg-black/50"
           >
             <div class="p-4 bg-green-500/20 rounded-lg text-green-400 flex items-center justify-center">
               <i class="fas fa-music text-3xl"></i>
@@ -356,9 +356,8 @@ MAESTRUM
         <div
           class="absolute bottom-10 w-full max-w-7xl px-6 flex flex-col md:flex-row justify-between items-end z-20 pointer-events-none"
         >
-          <div class="max-w-md pointer-events-auto" >
+          <div class="max-w-md pointer-events-auto">
             <p class="text-lg md:text-xl text-white/80 leading-relaxed">
-Express yourself with your hands<br />
 
             </p>
           </div>
@@ -506,26 +505,35 @@ Express yourself with your hands<br />
         ></div>
         <div class="max-w-4xl mx-auto relative z-10 text-center">
           <h2 class="text-5xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">
-            Join the <br />
-            Maestrum waitlist.
+            Own it once. <br />
+            <span class="text-accent">Use it forever.</span>
           </h2>
-          <div class="mt-16 relative">
+          <p class="text-xl text-white/60 max-w-2xl mx-auto mb-4">No subscriptions. No recurring fees. One payment, lifetime access.</p>
+          <div class="flex flex-wrap justify-center gap-3 mb-16">
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm">
+              <i class="fab fa-apple text-lg"></i> macOS
+            </span>
+            <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/80 text-sm">
+              <i class="fab fa-windows text-lg"></i> Windows
+            </span>
+          </div>
+          <div class="relative">
             <div
-              class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[3rem] p-12 md:p-16 flex flex-col items-center shadow-2xl relative overflow-hidden group"
+              class="bg-white/5 backdrop-blur-2xl border-2 border-accent/30 rounded-[3rem] p-12 md:p-16 flex flex-col items-center shadow-2xl relative overflow-hidden group hover:border-accent/50 transition-colors duration-300"
             >
               <div
-                class="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                class="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               ></div>
               <div
                 class="inline-block px-4 py-1 rounded-full border border-accent/50 bg-accent/10 text-accent text-sm font-bold uppercase tracking-wider mb-6"
               >
-                Early Access
+                One-time purchase
               </div>
-              <div class="flex flex-col items-center gap-2 mb-8">
-                <span class="text-3xl md:text-4xl font-heading font-bold text-white">Be first in line</span>
-                <span class="text-base text-white/60">Secure your spot before launch.</span>
+              <div class="flex items-baseline gap-2 mb-2">
+                <span class="text-6xl md:text-7xl font-heading font-bold text-white">$30</span>
               </div>
-              <ul class="flex flex-col gap-4 mb-12 text-left w-full max-w-xs">
+              <p class="text-white/60 mb-10">Pay once. Yours forever. No strings attached.</p>
+              <ul class="flex flex-col gap-4 mb-12 text-left w-full max-w-sm">
                 <li class="flex items-center gap-3 text-white/80">
                   <span class="bg-green-500/20 p-1 rounded-full text-green-400">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -533,7 +541,7 @@ Express yourself with your hands<br />
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </span>
-                  Priority onboarding when beta opens
+                  Works with any DAW — Ableton, FL Studio, and more
                 </li>
                 <li class="flex items-center gap-3 text-white/80">
                   <span class="bg-green-500/20 p-1 rounded-full text-green-400">
@@ -542,7 +550,7 @@ Express yourself with your hands<br />
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </span>
-                  Early feature access & feedback loop
+                  macOS & Windows — use the computer you already have
                 </li>
                 <li class="flex items-center gap-3 text-white/80">
                   <span class="bg-green-500/20 p-1 rounded-full text-green-400">
@@ -551,7 +559,7 @@ Express yourself with your hands<br />
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </span>
-                  Discounted price when beta opens
+                  Just your webcam — no extra hardware or sensors
                 </li>
                 <li class="flex items-center gap-3 text-white/80">
                   <span class="bg-green-500/20 p-1 rounded-full text-green-400">
@@ -560,16 +568,18 @@ Express yourself with your hands<br />
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </span>
-                  Unlimited gesture mapping
+                  Unlimited gesture mapping — full control, no limits
                 </li>
               </ul>
-              <button
-                id="waitlist-btn-pricing"
-                class="w-full max-w-sm py-5 rounded-full bg-white text-base font-heading font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all duration-300"
+              <a
+                href="https://maestrum.gumroad.com/l/buy-maestrum?wanted=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full max-w-sm py-5 rounded-full bg-accent text-white font-heading font-bold text-xl hover:bg-accent/90 hover:scale-105 hover:shadow-[0_0_50px_rgba(255,107,74,0.5)] transition-all duration-300 flex items-center justify-center gap-2"
               >
-                Join the waitlist
-              </button>
-              <p class="mt-6 text-sm text-white/40">Free to sign up. Get notified first.</p>
+                Get Maestrum now
+              </a>
+              <p class="mt-6 text-sm text-white/40">Secure checkout via Gumroad. Instant download.</p>
             </div>
           </div>
         </div>
@@ -676,31 +686,6 @@ Unlimited Gesture Mapping
       </footer>
     </div>
 
-    <!-- Waitlist Modal -->
-    <div id="waitlist-modal" class="modal-overlay">
-      <div class="modal-content">
-        <button id="modal-close" class="modal-close" aria-label="Close modal">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-        <iframe 
-          data-tally-src="https://tally.so/embed/QK1zdG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-          loading="lazy" 
-          width="100%" 
-          height="498" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0" 
-          title="Join Maestrum Waitlist">
-        </iframe>
-      </div>
-    </div>
-
-    <script>
-      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-    </script>
-
     <script>
       const navbar = document.getElementById("navbar");
       const navShell = document.getElementById("nav-shell");
@@ -756,59 +741,6 @@ Unlimited Gesture Mapping
           heroImage.addEventListener("error", markLoaded, { once: true });
         }
       }
-
-      // Waitlist Modal
-      const waitlistModal = document.getElementById("waitlist-modal");
-      const modalClose = document.getElementById("modal-close");
-      const waitlistBtnNav = document.getElementById("waitlist-btn-nav");
-      const waitlistBtnMobile = document.getElementById("waitlist-btn-mobile");
-      const waitlistBtnPricing = document.getElementById("waitlist-btn-pricing");
-
-      const openModal = () => {
-        waitlistModal.classList.add("active");
-        document.body.style.overflow = "hidden";
-      };
-
-      const closeModal = () => {
-        waitlistModal.classList.remove("active");
-        document.body.style.overflow = "";
-      };
-
-      // Open modal when clicking any waitlist button
-      if (waitlistBtnNav) {
-        waitlistBtnNav.addEventListener("click", openModal);
-      }
-      if (waitlistBtnMobile) {
-        waitlistBtnMobile.addEventListener("click", () => {
-          openModal();
-          // Close mobile menu if open
-          if (isMenuOpen) {
-            toggleMenu();
-          }
-        });
-      }
-      if (waitlistBtnPricing) {
-        waitlistBtnPricing.addEventListener("click", openModal);
-      }
-
-      // Close modal
-      if (modalClose) {
-        modalClose.addEventListener("click", closeModal);
-      }
-
-      // Close modal when clicking outside
-      waitlistModal.addEventListener("click", (e) => {
-        if (e.target === waitlistModal) {
-          closeModal();
-        }
-      });
-
-      // Close modal with Escape key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && waitlistModal.classList.contains("active")) {
-          closeModal();
-        }
-      });
     </script>
   </body>
 </html>
