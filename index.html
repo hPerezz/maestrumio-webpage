@@ -4,37 +4,75 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maestrum - Gesture Control for Music</title>
-    
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed. Join the waitlist for early access." />
-    <meta name="keywords" content="gesture control, music production, MIDI controller, hand tracking, DAW, music software, Ableton, FL Studio, webcam music control, live performance, music technology" />
+    <meta
+      name="description"
+      content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed. Join the waitlist for early access."
+    />
+    <meta
+      name="keywords"
+      content="gesture control, music production, MIDI controller, hand tracking, DAW, music software, Ableton, FL Studio, webcam music control, live performance, music technology"
+    />
     <meta name="author" content="Maestrum" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
     <link rel="canonical" href="https://maestrum.io/" />
-    
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-48R6YHGV0F"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-48R6YHGV0F");
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="icon.png" />
     <link rel="apple-touch-icon" href="/icon.png" />
-    
+
     <!-- Mobile & Theme -->
     <meta name="theme-color" content="#1E1B24" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://maestrum.io/" />
     <meta property="og:title" content="Maestrum - Gesture Control for Music" />
-    <meta property="og:description" content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed." />
-    <meta property="og:image" content="https://hperez.com.br/uploader/files/693973f1467f0.png" />
+    <meta
+      property="og:description"
+      content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed."
+    />
+    <meta
+      property="og:image"
+      content="https://hperez.com.br/uploader/files/693973f1467f0.png"
+    />
     <meta property="og:site_name" content="Maestrum" />
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://maestrum.io/" />
     <meta name="twitter:title" content="Maestrum - Gesture Control for Music" />
-    <meta name="twitter:description" content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed." />
-    <meta name="twitter:image" content="https://hperez.com.br/uploader/files/693973f1467f0.png" />
+    <meta
+      name="twitter:description"
+      content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed."
+    />
+    <meta
+      name="twitter:image"
+      content="https://hperez.com.br/uploader/files/693973f1467f0.png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -42,7 +80,13 @@
       rel="stylesheet"
     />
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -121,10 +165,8 @@
         opacity: 0;
         transform: translateY(12px) scale(0.985);
         filter: blur(6px);
-        transition:
-          opacity 1500ms ease-in,
-          transform 1800ms cubic-bezier(0.22, 1, 0.36, 1),
-          filter 1400ms ease-in;
+        transition: opacity 1500ms ease-in,
+          transform 1800ms cubic-bezier(0.22, 1, 0.36, 1), filter 1400ms ease-in;
       }
       .hero-image.loaded {
         opacity: 1;
@@ -150,7 +192,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%) scale(0.9);
-        background: #FFF;
+        background: #fff;
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 1.5rem;
         padding: 2rem;
@@ -175,7 +217,7 @@
         right: 1rem;
         background: rgba(0, 0, 0, 0.1);
         border: none;
-        color: #1E1B24;
+        color: #1e1b24;
         width: 2rem;
         height: 2rem;
         border-radius: 50%;
@@ -190,7 +232,8 @@
       }
       @media (max-width: 767px) {
         .hero-title-mobile {
-          text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 0, 0, 0.6);
+          text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9),
+            0 0 40px rgba(0, 0, 0, 0.6);
           color: #fff;
           mix-blend-mode: normal;
         }
@@ -200,63 +243,63 @@
         }
       }
     </style>
-    
+
     <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Maestrum",
-      "applicationCategory": "MusicApplication",
-      "operatingSystem": ["Windows", "macOS"],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/PreOrder"
-      },
-      "description": "Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed.",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "50"
-      },
-      "featureList": [
-        "Build music with your hands",
-        "Live perform with your hands",
-        "Control your DAW with your hands",
-        "Midi Controller with hand",
-        "Webcam-based gesture control",
-        "Hand tracking"
-      ]
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Maestrum",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": ["Windows", "macOS"],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/PreOrder"
+        },
+        "description": "Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed.",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "50"
+        },
+        "featureList": [
+          "Build music with your hands",
+          "Live perform with your hands",
+          "Control your DAW with your hands",
+          "Midi Controller with hand",
+          "Webcam-based gesture control",
+          "Hand tracking"
+        ]
+      }
     </script>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Maestrum",
-      "url": "https://maestrum.io",
-      "logo": "https://maestrum.io/icon.png",
-      "sameAs": [
-        "https://twitter.com/maestrum",
-        "https://instagram.com/maestrum"
-      ],
-      "description": "Maestrum - Gesture Control for Music. Control music with gestures using your webcam."
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Maestrum",
+        "url": "https://maestrum.io",
+        "logo": "https://maestrum.io/icon.png",
+        "sameAs": [
+          "https://twitter.com/maestrum",
+          "https://instagram.com/maestrum"
+        ],
+        "description": "Maestrum - Gesture Control for Music. Control music with gestures using your webcam."
+      }
     </script>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "VideoObject",
-      "name": "Maestrum hand-tracking demo",
-      "description": "See how Maestrum works - control music with hand gestures using your webcam",
-      "thumbnailUrl": "https://img.youtube.com/vi/8XGvAGfeQHI/maxresdefault.jpg",
-      "uploadDate": "2024-01-01",
-      "duration": "PT3M",
-      "contentUrl": "https://www.youtube.com/watch?v=8XGvAGfeQHI",
-      "embedUrl": "https://www.youtube.com/embed/8XGvAGfeQHI"
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Maestrum hand-tracking demo",
+        "description": "See how Maestrum works - control music with hand gestures using your webcam",
+        "thumbnailUrl": "https://img.youtube.com/vi/8XGvAGfeQHI/maxresdefault.jpg",
+        "uploadDate": "2024-01-01",
+        "duration": "PT3M",
+        "contentUrl": "https://www.youtube.com/watch?v=8XGvAGfeQHI",
+        "embedUrl": "https://www.youtube.com/embed/8XGvAGfeQHI"
+      }
     </script>
   </head>
   <body class="bg-base text-white">
@@ -269,20 +312,36 @@
           class="flex items-center justify-between w-full max-w-6xl rounded-full px-5 py-3 transition-all duration-500"
           id="nav-shell"
         >
-          <div class="text-xl font-heading font-bold tracking-tight flex items-center gap-2">
-MAESTRUM
+          <div
+            class="text-xl font-heading font-bold tracking-tight flex items-center gap-2"
+          >
+            MAESTRUM
           </div>
           <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a href="#features" class="text-white/70 hover:text-white transition-colors">Features</a>
-            <a href="#studio" class="text-white/70 hover:text-white transition-colors">Demo</a>
-            <a href="#pricing" class="text-white/70 hover:text-white transition-colors">Beta</a>
+            <a
+              href="#features"
+              class="text-white/70 hover:text-white transition-colors"
+              >Features</a
+            >
+            <a
+              href="#studio"
+              class="text-white/70 hover:text-white transition-colors"
+              >Demo</a
+            >
+            <a
+              href="#pricing"
+              class="text-white/70 hover:text-white transition-colors"
+              >Beta</a
+            >
           </div>
           <div>
             <button
               id="waitlist-btn-nav"
               class="group relative px-6 py-2 rounded-full border border-white/20 hover:border-accent/50 bg-white/5 hover:bg-accent/10 transition-all duration-300"
             >
-              <span class="text-sm font-bold text-white group-hover:text-accent transition-colors">
+              <span
+                class="text-sm font-bold text-white group-hover:text-accent transition-colors"
+              >
                 Join the waitlist ->
               </span>
             </button>
@@ -290,11 +349,15 @@ MAESTRUM
         </div>
       </nav>
 
-      <section class="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center pt-28">
+      <section
+        class="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center pt-28"
+      >
         <div
           class="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[80vh] bg-accent/20 blur-[120px] rounded-full pointer-events-none z-0"
         ></div>
-        <div class="absolute inset-0 flex items-center justify-center z-20 md:z-0 pointer-events-none">
+        <div
+          class="absolute inset-0 flex items-center justify-center z-20 md:z-0 pointer-events-none"
+        >
           <h1
             class="text-[10vw] md:text-[18vw] font-heading font-extrabold leading-none tracking-tighter select-none whitespace-nowrap hero-title-mobile text-white/80 mix-blend-overlay"
           >
@@ -302,8 +365,12 @@ MAESTRUM
           </h1>
         </div>
 
-        <div class="relative z-0 md:z-10 w-full max-w-5xl h-[60vh] md:h-[75vh] flex items-center justify-center mt-8 md:mt-0">
-          <div class="relative w-full h-full flex justify-center items-end group">
+        <div
+          class="relative z-0 md:z-10 w-full max-w-5xl h-[60vh] md:h-[75vh] flex items-center justify-center mt-8 md:mt-0"
+        >
+          <div
+            class="relative w-full h-full flex justify-center items-end group"
+          >
             <img
               id="hero-image"
               src="https://hperez.com.br/uploader/files/693973f1467f0.png"
@@ -315,36 +382,54 @@ MAESTRUM
           <div
             class="absolute top-[20%] left-[2%] md:left-[-6%] hidden md:flex backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex-col items-center gap-4 animate-float text-center transition-all duration-500 hover:bg-black/50"
           >
-            <div class="p-4 bg-accent/20 rounded-lg text-accent flex items-center justify-center">
+            <div
+              class="p-4 bg-accent/20 rounded-lg text-accent flex items-center justify-center"
+            >
               <i class="fas fa-microphone text-3xl"></i>
             </div>
             <div>
-              <div class="text-xs text-white/50 uppercase tracking-widest">For Singers</div>
-              <div class="text-sm font-bold text-white">Control beats and instruments while singing</div>
+              <div class="text-xs text-white/50 uppercase tracking-widest">
+                For Singers
+              </div>
+              <div class="text-sm font-bold text-white">
+                Control beats and instruments while singing
+              </div>
             </div>
           </div>
 
           <div
             class="absolute top-[40%] right-[2%] md:right-[-8%] hidden md:flex backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex-col items-center gap-4 animate-float-delayed text-center transition-all duration-500 hover:bg-black/50"
           >
-            <div class="p-4 bg-secondary/30 rounded-lg text-secondary flex items-center justify-center">
+            <div
+              class="p-4 bg-secondary/30 rounded-lg text-secondary flex items-center justify-center"
+            >
               <i class="fas fa-sliders-h text-3xl text-purple-300"></i>
             </div>
             <div>
-              <div class="text-xs text-white/50 uppercase tracking-widest">For Live Performers</div>
-              <div class="text-sm font-bold text-white">Live music with your hands</div>
+              <div class="text-xs text-white/50 uppercase tracking-widest">
+                For Live Performers
+              </div>
+              <div class="text-sm font-bold text-white">
+                Live music with your hands
+              </div>
             </div>
           </div>
 
           <div
             class="absolute bottom-[18%] left-[6%] md:left-[-2%] hidden md:flex backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex-col items-center gap-4 animate-float-slow text-center transition-all duration-500 hover:bg-black/50"
           >
-            <div class="p-4 bg-green-500/20 rounded-lg text-green-400 flex items-center justify-center">
+            <div
+              class="p-4 bg-green-500/20 rounded-lg text-green-400 flex items-center justify-center"
+            >
               <i class="fas fa-music text-3xl"></i>
             </div>
             <div>
-              <div class="text-xs text-white/50 uppercase tracking-widest">For Producers</div>
-              <div class="text-sm font-bold text-white">Expressive automations and effects</div>
+              <div class="text-xs text-white/50 uppercase tracking-widest">
+                For Producers
+              </div>
+              <div class="text-sm font-bold text-white">
+                Expressive automations and effects
+              </div>
             </div>
           </div>
         </div>
@@ -352,10 +437,13 @@ MAESTRUM
         <div
           class="absolute bottom-10 w-full max-w-7xl px-6 flex flex-col md:flex-row justify-between items-end z-20 pointer-events-none"
         >
-          <div class="max-w-md pointer-events-auto md:bg-transparent bg-black/40 md:backdrop-blur-none backdrop-blur-sm rounded-2xl px-4 py-3 md:px-0 md:py-0 md:rounded-none">
-            <p class="text-lg md:text-xl leading-relaxed hero-subtitle-mobile text-white/80">
-Express yourself with your hands<br />
-
+          <div
+            class="max-w-md pointer-events-auto md:bg-transparent bg-black/40 md:backdrop-blur-none backdrop-blur-sm rounded-2xl px-4 py-3 md:px-0 md:py-0 md:rounded-none"
+          >
+            <p
+              class="text-lg md:text-xl leading-relaxed hero-subtitle-mobile text-white/80"
+            >
+              Express yourself with your hands<br />
             </p>
           </div>
 
@@ -391,14 +479,16 @@ Express yourself with your hands<br />
           </div> -->
         </div>
 
-        <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-base to-transparent z-10 pointer-events-none"></div>
+        <div
+          class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-base to-transparent z-10 pointer-events-none"
+        ></div>
       </section>
 
       <section id="features" class="py-24 px-6 relative z-10 bg-base">
         <div class="max-w-7xl mx-auto">
           <div class="mb-16">
             <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">
- <span class="text-white/30">A new way to make music</span>
+              <span class="text-white/30">A new way to make music</span>
             </h2>
             <div class="h-1 w-20 bg-accent rounded-full"></div>
           </div>
@@ -413,16 +503,29 @@ Express yourself with your hands<br />
                 <div
                   class="w-14 h-14 rounded-2xl bg-[#1E1B24] border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-black/50"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3 10h18M3 14h18M10 6h4m-4 12h4" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 10h18M3 14h18M10 6h4m-4 12h4"
+                    />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-heading font-bold mb-3 text-white group-hover:text-accent transition-colors">
-                    Works with any DAW
+                <h3
+                  class="text-2xl font-heading font-bold mb-3 text-white group-hover:text-accent transition-colors"
+                >
+                  Works with any DAW
                 </h3>
                 <p class="text-white/60 leading-relaxed">
-                  Ableton, FL Studio, you name it. It uses MIDI to control everything.
+                  Ableton, FL Studio, you name it. It uses MIDI to control
+                  everything.
                 </p>
               </div>
             </div>
@@ -436,16 +539,29 @@ Express yourself with your hands<br />
                 <div
                   class="w-14 h-14 rounded-2xl bg-[#1E1B24] border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-black/50"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M8 9l4-4 4 4M8 15l4 4 4-4M4 12h16" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 9l4-4 4 4M8 15l4 4 4-4M4 12h16"
+                    />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-heading font-bold mb-3 text-white group-hover:text-accent transition-colors">
+                <h3
+                  class="text-2xl font-heading font-bold mb-3 text-white group-hover:text-accent transition-colors"
+                >
                   No Latency
                 </h3>
                 <p class="text-white/60 leading-relaxed">
-                  No latency, no delay. Just link your hands and start making music.
+                  No latency, no delay. Just link your hands and start making
+                  music.
                 </p>
               </div>
             </div>
@@ -459,17 +575,30 @@ Express yourself with your hands<br />
                 <div
                   class="w-14 h-14 rounded-2xl bg-[#1E1B24] border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-black/50"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M7 10l5 5 5-5M12 5v10" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M7 10l5 5 5-5M12 5v10"
+                    />
                     <circle cx="12" cy="12" r="9" />
                   </svg>
                 </div>
-                <h3 class="text-2xl font-heading font-bold mb-3 text-white group-hover:text-accent transition-colors">
+                <h3
+                  class="text-2xl font-heading font-bold mb-3 text-white group-hover:text-accent transition-colors"
+                >
                   No Extra Hardware Needed
                 </h3>
                 <p class="text-white/60 leading-relaxed">
-                  No gloves, sensors or expensive gear required. Use only your webcam.
+                  No gloves, sensors or expensive gear required. Use only your
+                  webcam.
                 </p>
               </div>
             </div>
@@ -477,13 +606,24 @@ Express yourself with your hands<br />
         </div>
       </section>
 
-      <section id="studio" class="py-24 relative overflow-hidden bg-black/30 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center">
+      <section
+        id="studio"
+        class="py-24 relative overflow-hidden bg-black/30 border-y border-white/5"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center"
+        >
           <div class="mb-12 text-center">
-            <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-2">See the control in action</h2>
+            <h2
+              class="text-3xl md:text-4xl font-heading font-bold text-white mb-2"
+            >
+              See the control in action
+            </h2>
             <p class="text-white/50">Check what Perez built with Maestrum</p>
           </div>
-          <div class="w-full max-w-4xl aspect-video relative bg-black/60 rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
+          <div
+            class="w-full max-w-4xl aspect-video relative bg-black/60 rounded-3xl border border-white/10 overflow-hidden shadow-2xl"
+          >
             <iframe
               class="absolute inset-0 w-full h-full"
               src="https://www.youtube.com/embed/8XGvAGfeQHI?si=mBIxAX_A-TMBcnxY"
@@ -491,17 +631,21 @@ Express yourself with your hands<br />
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-          </div>  
+          </div>
         </div>
       </section>
 
       <section id="pricing" class="py-32 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#7000FF]/20 via-base to-[#FF6B4A]/10 opacity-60"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-[#7000FF]/20 via-base to-[#FF6B4A]/10 opacity-60"
+        ></div>
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 blur-[150px] rounded-full pointer-events-none"
         ></div>
         <div class="max-w-4xl mx-auto relative z-10 text-center">
-          <h2 class="text-5xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">
+          <h2
+            class="text-5xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight"
+          >
             Join the <br />
             Maestrum waitlist.
           </h2>
@@ -518,14 +662,27 @@ Express yourself with your hands<br />
                 Early Access
               </div>
               <div class="flex flex-col items-center gap-2 mb-8">
-                <span class="text-3xl md:text-4xl font-heading font-bold text-white">Be first in line</span>
-                <span class="text-base text-white/60">Secure your spot before launch.</span>
+                <span
+                  class="text-3xl md:text-4xl font-heading font-bold text-white"
+                  >Be first in line</span
+                >
+                <span class="text-base text-white/60"
+                  >Secure your spot before launch.</span
+                >
               </div>
               <ul class="flex flex-col gap-4 mb-12 text-left w-full max-w-xs">
                 <li class="flex items-center gap-3 text-white/80">
                   <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-3.5 w-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </span>
@@ -533,8 +690,16 @@ Express yourself with your hands<br />
                 </li>
                 <li class="flex items-center gap-3 text-white/80">
                   <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-3.5 w-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </span>
@@ -542,8 +707,16 @@ Express yourself with your hands<br />
                 </li>
                 <li class="flex items-center gap-3 text-white/80">
                   <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-3.5 w-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </span>
@@ -551,8 +724,16 @@ Express yourself with your hands<br />
                 </li>
                 <li class="flex items-center gap-3 text-white/80">
                   <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-3.5 w-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
                       <path d="M20 6L9 17l-5-5" />
                     </svg>
                   </span>
@@ -565,7 +746,9 @@ Express yourself with your hands<br />
               >
                 Join the waitlist
               </button>
-              <p class="mt-6 text-sm text-white/40">Free to sign up. Get notified first.</p>
+              <p class="mt-6 text-sm text-white/40">
+                Free to sign up. Get notified first.
+              </p>
             </div>
           </div>
         </div>
@@ -648,21 +831,39 @@ Unlimited Gesture Mapping
       </section>  -->
 
       <footer class="py-12 border-t border-white/5 bg-[#16141a] relative z-10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div
+          class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
+        >
           <div class="text-xl font-heading font-bold text-white/50">
             <span class="text-accent/50">MAESTRUM</span>
           </div>
           <div class="flex flex-col items-center gap-2 text-sm">
             <div class="flex gap-6 text-white/40 font-medium">
-              <a href="https://twitter.com/pamonhero" class="hover:text-white transition-colors">Twitter</a>
-              <a href="https://instagram.com/maestrum.io" class="hover:text-white transition-colors">Instagram</a>
+              <a
+                href="https://twitter.com/pamonhero"
+                class="hover:text-white transition-colors"
+                >Twitter</a
+              >
+              <a
+                href="https://instagram.com/maestrum.io"
+                class="hover:text-white transition-colors"
+                >Instagram</a
+              >
             </div>
-            <div class="flex flex-wrap justify-center gap-4 text-xs text-white/40">
-              <a href="terms.html" class="hover:text-white transition-colors">Terms &amp; Conditions</a>
+            <div
+              class="flex flex-wrap justify-center gap-4 text-xs text-white/40"
+            >
+              <a href="terms.html" class="hover:text-white transition-colors"
+                >Terms &amp; Conditions</a
+              >
               <span class="hidden md:inline text-white/30">•</span>
-              <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="privacy.html" class="hover:text-white transition-colors"
+                >Privacy Policy</a
+              >
               <span class="hidden md:inline text-white/30">•</span>
-              <a href="refund.html" class="hover:text-white transition-colors">Refund Policy</a>
+              <a href="refund.html" class="hover:text-white transition-colors"
+                >Refund Policy</a
+              >
             </div>
           </div>
           <div class="text-sm text-white/30 text-center md:text-right">
@@ -676,25 +877,52 @@ Unlimited Gesture Mapping
     <div id="waitlist-modal" class="modal-overlay">
       <div class="modal-content">
         <button id="modal-close" class="modal-close" aria-label="Close modal">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
-        <iframe 
-          data-tally-src="https://tally.so/embed/QK1zdG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-          loading="lazy" 
-          width="100%" 
-          height="498" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0" 
-          title="Join Maestrum Waitlist">
+        <iframe
+          data-tally-src="https://tally.so/embed/QK1zdG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="498"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Join Maestrum Waitlist"
+        >
         </iframe>
       </div>
     </div>
 
     <script>
-      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+      var d = document,
+        w = "https://tally.so/widgets/embed.js",
+        v = function () {
+          "undefined" != typeof Tally
+            ? Tally.loadEmbeds()
+            : d
+                .querySelectorAll("iframe[data-tally-src]:not([src])")
+                .forEach(function (e) {
+                  e.src = e.dataset.tallySrc;
+                });
+        };
+      if ("undefined" != typeof Tally) v();
+      else if (d.querySelector('script[src="' + w + '"]') == null) {
+        var s = d.createElement("script");
+        (s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s);
+      }
     </script>
 
     <script>
@@ -737,7 +965,9 @@ Unlimited Gesture Mapping
       const waitlistModal = document.getElementById("waitlist-modal");
       const modalClose = document.getElementById("modal-close");
       const waitlistBtnNav = document.getElementById("waitlist-btn-nav");
-      const waitlistBtnPricing = document.getElementById("waitlist-btn-pricing");
+      const waitlistBtnPricing = document.getElementById(
+        "waitlist-btn-pricing"
+      );
 
       const openModal = () => {
         waitlistModal.classList.add("active");
