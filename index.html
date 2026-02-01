@@ -188,6 +188,17 @@
       .modal-close:hover {
         background: rgba(0, 0, 0, 0.2);
       }
+      @media (max-width: 767px) {
+        .hero-title-mobile {
+          text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 0, 0, 0.6);
+          color: #fff;
+          mix-blend-mode: normal;
+        }
+        .hero-subtitle-mobile {
+          text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+          color: #fff;
+        }
+      }
     </style>
     
     <!-- Structured Data (JSON-LD) for SEO -->
@@ -266,7 +277,7 @@ MAESTRUM
             <a href="#studio" class="text-white/70 hover:text-white transition-colors">Demo</a>
             <a href="#pricing" class="text-white/70 hover:text-white transition-colors">Beta</a>
           </div>
-          <div class="hidden md:block">
+          <div>
             <button
               id="waitlist-btn-nav"
               class="group relative px-6 py-2 rounded-full border border-white/20 hover:border-accent/50 bg-white/5 hover:bg-accent/10 transition-all duration-300"
@@ -276,21 +287,6 @@ MAESTRUM
               </span>
             </button>
           </div>
-          <button id="menu-toggle" class="md:hidden text-white p-2" aria-label="Toggle navigation">
-            <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-        <div
-          id="mobile-menu"
-          class="absolute top-20 left-4 right-4 bg-[#1E1B24]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:hidden hidden flex-col gap-6 items-center z-40 shadow-2xl"
-        >
-          <a href="#features" class="text-lg font-heading text-white">Features</a>
-          <a href="#studio" class="text-lg font-heading text-white">Demo</a>
-          <a href="#pricing" class="text-lg font-heading text-white">Pricing</a>
-          <button id="waitlist-btn-mobile" class="w-full py-3 rounded-full bg-accent text-white font-bold">Join the waitlist</button>
         </div>
       </nav>
 
@@ -298,15 +294,15 @@ MAESTRUM
         <div
           class="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[80vh] bg-accent/20 blur-[120px] rounded-full pointer-events-none z-0"
         ></div>
-        <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
+        <div class="absolute inset-0 flex items-center justify-center z-20 md:z-0 pointer-events-none">
           <h1
-            class="text-[10vw] md:text-[18vw] font-heading font-extrabold text-white/80 leading-none tracking-tighter select-none mix-blend-overlay whitespace-nowrap"
+            class="text-[10vw] md:text-[18vw] font-heading font-extrabold leading-none tracking-tighter select-none whitespace-nowrap hero-title-mobile text-white/80 mix-blend-overlay"
           >
             MAESTRUM
           </h1>
         </div>
 
-        <div class="relative z-10 w-full max-w-5xl h-[60vh] md:h-[75vh] flex items-center justify-center mt-8 md:mt-0">
+        <div class="relative z-0 md:z-10 w-full max-w-5xl h-[60vh] md:h-[75vh] flex items-center justify-center mt-8 md:mt-0">
           <div class="relative w-full h-full flex justify-center items-end group">
             <img
               id="hero-image"
@@ -356,8 +352,8 @@ MAESTRUM
         <div
           class="absolute bottom-10 w-full max-w-7xl px-6 flex flex-col md:flex-row justify-between items-end z-20 pointer-events-none"
         >
-          <div class="max-w-md pointer-events-auto" >
-            <p class="text-lg md:text-xl text-white/80 leading-relaxed">
+          <div class="max-w-md pointer-events-auto md:bg-transparent bg-black/40 md:backdrop-blur-none backdrop-blur-sm rounded-2xl px-4 py-3 md:px-0 md:py-0 md:rounded-none">
+            <p class="text-lg md:text-xl leading-relaxed hero-subtitle-mobile text-white/80">
 Express yourself with your hands<br />
 
             </p>
@@ -704,19 +700,6 @@ Unlimited Gesture Mapping
     <script>
       const navbar = document.getElementById("navbar");
       const navShell = document.getElementById("nav-shell");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const menuToggle = document.getElementById("menu-toggle");
-      let isMenuOpen = false;
-
-      const toggleMenu = () => {
-        isMenuOpen = !isMenuOpen;
-        mobileMenu.classList.toggle("hidden", !isMenuOpen);
-        menuToggle.setAttribute("aria-expanded", String(isMenuOpen));
-        const icon = document.getElementById("menu-icon");
-        icon.innerHTML = isMenuOpen
-          ? '<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />'
-          : '<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />';
-      };
 
       const handleScroll = () => {
         const scrolled = window.scrollY > 50;
@@ -726,13 +709,6 @@ Unlimited Gesture Mapping
       handleScroll();
 
       window.addEventListener("scroll", handleScroll);
-      menuToggle.addEventListener("click", toggleMenu);
-      mobileMenu.querySelectorAll("a").forEach((link) =>
-        link.addEventListener("click", () => {
-          isMenuOpen = false;
-          mobileMenu.classList.add("hidden");
-        })
-      );
 
       const heroImage = document.getElementById("hero-image");
       if (heroImage) {
@@ -761,7 +737,6 @@ Unlimited Gesture Mapping
       const waitlistModal = document.getElementById("waitlist-modal");
       const modalClose = document.getElementById("modal-close");
       const waitlistBtnNav = document.getElementById("waitlist-btn-nav");
-      const waitlistBtnMobile = document.getElementById("waitlist-btn-mobile");
       const waitlistBtnPricing = document.getElementById("waitlist-btn-pricing");
 
       const openModal = () => {
@@ -777,15 +752,6 @@ Unlimited Gesture Mapping
       // Open modal when clicking any waitlist button
       if (waitlistBtnNav) {
         waitlistBtnNav.addEventListener("click", openModal);
-      }
-      if (waitlistBtnMobile) {
-        waitlistBtnMobile.addEventListener("click", () => {
-          openModal();
-          // Close mobile menu if open
-          if (isMenuOpen) {
-            toggleMenu();
-          }
-        });
       }
       if (waitlistBtnPricing) {
         waitlistBtnPricing.addEventListener("click", openModal);
