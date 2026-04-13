@@ -382,6 +382,10 @@ section {
   transform: translate(-50%, -50%);
 }
 
+.hand-diagram > svg {
+  fill: var(--orange);
+}
+
 /* Floating data points */
 .hand-diagram__point {
   position: absolute;
