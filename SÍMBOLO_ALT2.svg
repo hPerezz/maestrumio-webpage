@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168.14 269.18">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #ff6724;
+        stroke-miterlimit: 10;
+        stroke-width: .14px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #f4f3ef;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1-2" data-name="Camada 1">
+    <g>
+      <g>
+        <rect class="cls-2" x="142.87" y="151.41" width="16.8" height="67.26" rx="4.2" ry="4.2"/>
+        <rect class="cls-2" x="142.87" y="235.49" width="16.8" height="33.69" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x="134.47" y="218.67" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x="159.67" y="218.67" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+      </g>
+      <g>
+        <rect class="cls-2" x="109.27" y="33.57" width="16.8" height="33.76" rx="4.2" ry="4.2"/>
+        <rect class="cls-2" x="109.27" y="84.14" width="16.8" height="67.26" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x="100.87" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x="126.07" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+      </g>
+      <g>
+        <rect class="cls-2" x="75.67" width="16.8" height="84.14" rx="4.2" ry="4.2"/>
+        <rect class="cls-2" x="75.67" y="100.96" width="16.8" height="16.82" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x="67.27" y="84.14" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x="92.47" y="84.14" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+      </g>
+      <g>
+        <rect class="cls-2" x="42.07" y="16.82" width="16.8" height="50.51" rx="4.2" ry="4.2"/>
+        <rect class="cls-2" x="42.07" y="84.14" width="16.8" height="50.45" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x="33.67" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x="58.87" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+      </g>
+      <g>
+        <rect class="cls-2" x="8.47" y="50.45" width="16.8" height="84.14" rx="4.2" ry="4.2"/>
+        <rect class="cls-2" x="8.47" y="151.41" width="16.8" height="16.82" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x=".07" y="134.59" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+        <rect class="cls-1" x="25.27" y="134.59" width="8.4" height="16.82" rx="4.2" ry="4.2"/>
+      </g>
+    </g>
+  </g>
+</svg>

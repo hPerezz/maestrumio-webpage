@@ -1,902 +1,698 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maestrum - Gesture Control for Music</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maestrum — Perform Music with Movement</title>
+  <meta name="description" content="Maestrum transforms hand movements into expressive music control using computer vision. No extra hardware. Works with any major DAW. Join the waitlist for early access." />
+  <meta name="keywords" content="gesture control, music production, MIDI controller, hand tracking, DAW, music software, Ableton, FL Studio, webcam music control, live performance, music technology" />
+  <meta name="author" content="Maestrum" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://maestrum.io/" />
 
-    <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed. Join the waitlist for early access."
-    />
-    <meta
-      name="keywords"
-      content="gesture control, music production, MIDI controller, hand tracking, DAW, music software, Ableton, FL Studio, webcam music control, live performance, music technology"
-    />
-    <meta name="author" content="Maestrum" />
-    <meta
-      name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    />
-    <link rel="canonical" href="https://maestrum.io/" />
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-48R6YHGV0F"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+  <!-- Theme -->
+  <meta name="theme-color" content="#F4F3EF" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-      gtag("config", "G-48R6YHGV0F");
-    </script>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://maestrum.io/" />
+  <meta property="og:title" content="Maestrum — Perform Music with Movement" />
+  <meta property="og:description" content="Maestrum transforms hand movements into expressive music control using computer vision. No extra hardware. Works with any major DAW." />
+  <meta property="og:image" content="https://hperez.com.br/uploader/files/693973f1467f0.png" />
+  <meta property="og:site_name" content="Maestrum" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="src/logo/simbolo.svg" />
-    <link rel="apple-touch-icon" href="src/logo/png/simbolo/Ativo 9@5000x.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://maestrum.io/" />
+  <meta name="twitter:title" content="Maestrum - Your hands become the instrument" />
+  <meta name="twitter:description" content="Maestrum transforms hand movements into expressive music control using computer vision. No extra hardware. Works with any major DAW." />
+  <meta name="twitter:image" content="https://hperez.com.br/uploader/files/693973f1467f0.png" />
 
-    <!-- Mobile & Theme -->
-    <meta name="theme-color" content="#F4F3EF" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Maestrum",
+    "applicationCategory": "MusicApplication",
+    "operatingSystem": ["Windows", "macOS"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/PreOrder"
+    },
+    "description": "Maestrum transforms hand movements into expressive music control using computer vision. No extra hardware. Works with any major DAW.",
+    "featureList": [
+      "Perform music with your hands",
+      "Control your DAW with gestures",
+      "MIDI controller via hand tracking",
+      "Webcam-based gesture control",
+      "21 hand landmarks tracked",
+      "60 fps real-time processing"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Maestrum",
+    "url": "https://maestrum.io",
+    "logo": "https://maestrum.io/src/logo/logotipo.svg",
+    "description": "Maestrum - Perform Music with Movement. Control music with hand gestures using your webcam."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Maestrum hand-tracking demo",
+    "description": "See how Maestrum works — control music with hand gestures using your webcam",
+    "thumbnailUrl": "https://img.youtube.com/vi/8XGvAGfeQHI/maxresdefault.jpg",
+    "uploadDate": "2024-01-01",
+    "duration": "PT3M",
+    "contentUrl": "https://www.youtube.com/watch?v=8XGvAGfeQHI",
+    "embedUrl": "https://www.youtube.com/embed/8XGvAGfeQHI"
+  }
+  </script>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://maestrum.io/" />
-    <meta property="og:title" content="Maestrum - Gesture Control for Music" />
-    <meta
-      property="og:description"
-      content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed."
-    />
-    <meta
-      property="og:image"
-      content="https://hperez.com.br/uploader/files/693973f1467f0.png"
-    />
-    <meta property="og:site_name" content="Maestrum" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-48R6YHGV0F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-48R6YHGV0F');
+  </script>
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://maestrum.io/" />
-    <meta name="twitter:title" content="Maestrum - Gesture Control for Music" />
-    <meta
-      name="twitter:description"
-      content="Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed."
-    />
-    <meta
-      name="twitter:image"
-      content="https://hperez.com.br/uploader/files/693973f1467f0.png"
-    />
-    <!-- Font Awesome Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              heading: ["ThatThatNewPixel", "sans-serif"],
-              body: ["Neue Haas Grotesk", "sans-serif"],
-              pixel: ["ThatThatNewPixel", "sans-serif"],
-              matrix: ["DotiMatrix", "sans-serif"],
-              orbitron: ["Orbitron", "sans-serif"],
-            },
-            colors: {
-              base: "#F4F3EF",
-              accent: "#FE6825",
-              secondary: "#5E5E5E",
-              glass: "rgba(0,0,0,0.04)",
-              glassBorder: "rgba(0,0,0,0.1)",
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      @font-face {
-        font-family: 'ThatThatNewPixel';
-        src: url('src/fonts/alternative/ttnp/woff2/ThatThatNewPixel-Square.woff2') format('woff2'),
-             url('src/fonts/alternative/ttnp/woff/ThatThatNewPixel-Square.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'DotiMatrix';
-        src: url('src/fonts/alternative/dotimatrix/dotim5__.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Orbitron';
-        src: url('src/fonts/alternative/orbitron/Orbitron-VariableFont_wght.ttf') format('truetype');
-        font-weight: 100 900;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Neue Haas Grotesk';
-        src: url('src/fonts/body/neue-haas-grotesk/Neue Haas Grotesk Display Pro 55 Roman.otf') format('opentype');
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Neue Haas Grotesk';
-        src: url('src/fonts/body/neue-haas-grotesk/Neue Haas Grotesk Display Pro 65 Medium.otf') format('opentype');
-        font-weight: 500;
-        font-style: normal;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: 'Neue Haas Grotesk';
-        src: url('src/fonts/body/neue-haas-grotesk/Neue Haas Grotesk Display Pro 75 Bold.otf') format('opentype');
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
-      :root {
-        color-scheme: light;
-      }
-      body {
-        background-color: #F4F3EF;
-        color: #000000;
-        overflow-x: hidden;
-        font-family: "Neue Haas Grotesk", "Inter", system-ui, -apple-system, sans-serif;
-      }
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #F4F3EF;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #5E5E5E;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #FE6825;
-      }
-      .nav-glass {
-        background: rgba(244, 243, 239, 0.9);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(0, 0, 0, 0.08);
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-      }
-      .bar {
-        width: 6px;
-        border-radius: 9999px 9999px 2px 2px;
-        background: #FE6825;
-        transition: height 80ms ease;
-      }
-      .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(8px);
-        z-index: 1000;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-      }
-      .modal-overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
-      .modal-content {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.9);
-        background: #fff;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 1.5rem;
-        padding: 2rem;
-        max-width: 90vw;
-        width: 100%;
-        max-width: 600px;
-        max-height: 90vh;
-        overflow-y: auto;
-        z-index: 1001;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-      }
-      .modal-overlay.active .modal-content {
-        opacity: 1;
-        visibility: visible;
-        transform: translate(-50%, -50%) scale(1);
-      }
-      .modal-close {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        background: rgba(0, 0, 0, 0.1);
-        border: none;
-        color: #000000;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s ease;
-      }
-      .modal-close:hover {
-        background: rgba(0, 0, 0, 0.2);
-      }
-      @media (max-width: 767px) {
-        .hero-subtitle-mobile {
-          color: #000;
-        }
-      }
-    </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-    <!-- Structured Data (JSON-LD) for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Maestrum",
-        "applicationCategory": "MusicApplication",
-        "operatingSystem": ["Windows", "macOS"],
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/PreOrder"
-        },
-        "description": "Express yourself with your hands. Control music with gestures using your webcam. Works with any DAW, no latency, no extra hardware needed.",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "50"
-        },
-        "featureList": [
-          "Build music with your hands",
-          "Live perform with your hands",
-          "Control your DAW with your hands",
-          "Midi Controller with hand",
-          "Webcam-based gesture control",
-          "Hand tracking"
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Maestrum",
-        "url": "https://maestrum.io",
-        "logo": "https://maestrum.io/icon.png",
-        "sameAs": [
-          "https://twitter.com/maestrum",
-          "https://instagram.com/maestrum"
-        ],
-        "description": "Maestrum - Gesture Control for Music. Control music with gestures using your webcam."
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "VideoObject",
-        "name": "Maestrum hand-tracking demo",
-        "description": "See how Maestrum works - control music with hand gestures using your webcam",
-        "thumbnailUrl": "https://img.youtube.com/vi/8XGvAGfeQHI/maxresdefault.jpg",
-        "uploadDate": "2024-01-01",
-        "duration": "PT3M",
-        "contentUrl": "https://www.youtube.com/watch?v=8XGvAGfeQHI",
-        "embedUrl": "https://www.youtube.com/embed/8XGvAGfeQHI"
-      }
-    </script>
-  </head>
-  <body class="bg-base text-black">
-    <div class="relative min-h-screen bg-base">
-      <nav
-        id="navbar"
-        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 md:px-6 py-4 flex justify-center items-center"
-      >
-        <div
-          class="flex items-center justify-between w-full max-w-6xl rounded-full px-5 py-3 transition-all duration-500"
-          id="nav-shell"
-        >
-          <div class="flex items-center gap-2">
-            <svg class="h-8 w-auto" viewBox="0 0 167.44 278.69" fill="#FE6825">
-              <g><g><rect x="142.32" y="153.28" width="16.74" height="97.54" rx="4.19" ry="4.19"/><rect x="142.32" y="264.76" width="16.74" height="13.93" rx="4.19" ry="4.19"/><rect x="133.95" y="250.82" width="8.37" height="13.93" rx="4.19" ry="4.19"/><rect x="159.07" y="250.82" width="8.37" height="13.93" rx="4.19" ry="4.19"/></g><g><rect x="108.83" y="27.87" width="16.74" height="97.54" rx="4.19" ry="4.19"/><rect x="108.83" y="139.35" width="16.74" height="13.93" rx="4.19" ry="4.19"/><rect x="100.46" y="125.41" width="8.37" height="13.93" rx="4.19" ry="4.19"/><rect x="125.58" y="125.41" width="8.37" height="13.93" rx="4.19" ry="4.19"/></g><g><rect x="75.35" width="16.74" height="97.54" rx="4.19" ry="4.19"/><rect x="75.35" y="111.48" width="16.74" height="13.93" rx="4.19" ry="4.19"/><rect x="66.97" y="97.54" width="8.37" height="13.93" rx="4.19" ry="4.19"/><rect x="92.09" y="97.54" width="8.37" height="13.93" rx="4.19" ry="4.19"/></g><g><rect x="41.86" y="13.93" width="16.74" height="97.54" rx="4.19" ry="4.19"/><rect x="41.86" y="125.41" width="16.74" height="13.93" rx="4.19" ry="4.19"/><rect x="33.49" y="111.48" width="8.37" height="13.93" rx="4.19" ry="4.19"/><rect x="58.6" y="111.48" width="8.37" height="13.93" rx="4.19" ry="4.19"/></g><g><rect x="8.37" y="41.8" width="16.74" height="97.54" rx="4.19" ry="4.19"/><rect x="8.37" y="153.28" width="16.74" height="13.93" rx="4.19" ry="4.19"/><rect x="0" y="139.35" width="8.37" height="13.93" rx="4.19" ry="4.19"/><rect x="25.12" y="139.35" width="8.37" height="13.93" rx="4.19" ry="4.19"/></g></g>
-            </svg>
-            <svg class="h-5 w-auto hidden md:block" viewBox="0 0 844.05 117.3" fill="currentColor">
-              <g><path d="M33.51,0c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81H16.76v100.54H0V0h33.51ZM50.27,67.03V16.76h16.76v50.27h-16.76ZM83.79,0h33.51v117.3h-16.76V16.76h-33.51c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94Z"/><path d="M204.27,16.76h16.76v100.54h-16.76v-50.27h-50.27v50.27h-16.76V16.76c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94h50.27v16.76h-50.27v33.51h50.27V16.76Z"/><path d="M255.04,16.76v33.51c-4.58,0-8.52-1.65-11.81-4.94-3.3-3.29-4.94-7.23-4.94-11.81v-16.76c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94h67.03v16.76h-67.03ZM238.29,83.79c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94v33.51h67.03v16.76h-67.03c-4.58,0-8.52-1.65-11.81-4.94-3.3-3.29-4.94-7.23-4.94-11.81v-16.76ZM322.07,67.03h-67.03v-16.76h67.03v16.76Z"/><path d="M351.73,16.76v33.51c-4.58,0-8.52-1.65-11.81-4.94-3.3-3.29-4.94-7.23-4.94-11.81v-16.76c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94h67.03v16.76h-67.03ZM402,67.03h-50.27v-16.76h50.27c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81v33.51c0,4.58-1.65,8.52-4.94,11.81-3.3,3.3-7.23,4.94-11.81,4.94h-67.03v-16.76h67.03v-33.51Z"/><path d="M443.73,0c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81h-33.51V0h16.76ZM460.49,117.3V16.76h16.76v100.54h-16.76ZM494,0h16.76v16.76h-33.51c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94Z"/><path d="M538.4,50.27h50.27v16.76h-50.27v50.27h-16.76V0h67.03c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81v16.76c0,4.58-1.65,8.52-4.94,11.81-3.3,3.3-7.24,4.94-11.81,4.94V16.76h-50.27v33.51ZM588.68,117.3v-50.27c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81v33.51h-16.76Z"/><path d="M640.29,100.54h50.27v16.76h-50.27c-4.58,0-8.52-1.65-11.81-4.94-3.3-3.29-4.94-7.23-4.94-11.81V0h16.76v100.54ZM690.56,0h16.76v100.54h-16.76V0Z"/><path d="M760.27,0c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81h-33.51v100.54h-16.76V0h33.51ZM777.02,67.03V16.76h16.76v50.27h-16.76ZM810.54,0h33.51v117.3h-16.76V16.76h-33.51c0-4.58,1.65-8.52,4.94-11.81s7.23-4.94,11.81-4.94Z"/></g>
-            </svg>
-          </div>
-          <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-            <a
-              href="#features"
-              class="text-black/60 hover:text-black transition-colors"
-              >Features</a
-            >
-            <a
-              href="#studio"
-              class="text-black/60 hover:text-black transition-colors"
-              >Demo</a
-            >
-            <a
-              href="#pricing"
-              class="text-black/60 hover:text-black transition-colors"
-              >Beta</a
-            >
-          </div>
-          <div>
-            <button
-              id="waitlist-btn-nav"
-              class="group relative px-6 py-2 rounded-full border border-black/20 hover:border-accent/50 bg-black/5 hover:bg-accent/10 transition-all duration-300"
-            >
-              <span
-                class="text-sm font-bold text-black group-hover:text-accent transition-colors"
-              >
-                Join the waitlist ->
-              </span>
-            </button>
-          </div>
-        </div>
-      </nav>
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="#" aria-label="Maestrum home">
+        <img class="nav__logo" src="src/logo/logotipo.svg" alt="Maestrum" />
+      </a>
 
-      <section
-        class="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center pt-28"
-      >
-        <div
-          class="relative z-10 flex flex-col items-center justify-center grow w-full px-6 py-12"
-        >
-          <h1 class="m-0 w-full max-w-[min(92vw,800px)] flex justify-center">
-            <img
-              src="src/logo/logotipo.svg"
-              alt="Maestrum"
-              class="w-full h-auto select-none"
-              width="844"
-              height="117"
-            />
-          </h1>
-        </div>
+      <ul class="nav__links">
+        <li><a href="#about">Demo</a></li>
+        <li><a href="#compat">Compatibility</a></li>
+        <li><a href="#feel">Experience</a></li>
+        <li><a href="#proof">Why It Travels</a></li>
+        <li><a href="#quickstart">Quick Start</a></li>
+        <li><a href="#waitlist">Early Access</a></li>
+      </ul>
 
-        <div
-          class="absolute bottom-10 w-full max-w-7xl px-6 flex flex-col md:flex-row justify-between items-end z-20 pointer-events-none"
-        >
-          <div
-            class="max-w-md pointer-events-auto md:bg-transparent bg-black/40 md:backdrop-blur-none backdrop-blur-sm rounded-2xl px-4 py-3 md:px-0 md:py-0 md:rounded-none"
-          >
-            <p
-              class="text-lg md:text-xl leading-relaxed hero-subtitle-mobile text-black/70"
-            >
-              Express yourself with your hands<br />
-            </p>
-          </div>
-
-          <!-- <div
-            class="flex items-center gap-4 mt-6 md:mt-0 pointer-events-auto bg-black/30 backdrop-blur-sm p-4 rounded-2xl border border-white/5"
-          >
-            <div class="text-4xl font-heading font-bold text-white">4.9</div>
-            <div class="flex flex-col">
-              <div class="flex text-yellow-500 gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 2.75l2.9 5.88 6.49.95-4.7 4.58 1.11 6.46L12 17.77l-5.8 3.05 1.11-6.46-4.7-4.58 6.49-.95L12 2.75z" />
-                </svg>
-              </div>
-              <span class="text-xs text-white/60">Used by 50k+ Creators</span>
-            </div>
-          </div> -->
-        </div>
-
-      </section>
-
-      <section id="features" class="py-24 px-6 relative z-10 bg-base">
-        <div class="max-w-7xl mx-auto">
-          <div class="mb-16">
-            <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">
-              <span class="text-black/30">A new way to make music</span>
-            </h2>
-            <div class="h-1 w-20 bg-accent rounded-full"></div>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div
-              class="group relative p-8 rounded-3xl bg-white border border-black/10 hover:bg-white hover:border-accent/30 transition-all duration-500 overflow-hidden"
-            >
-              <div class="relative z-10">
-                <div
-                  class="w-14 h-14 rounded-2xl bg-base border border-black/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 10h18M3 14h18M10 6h4m-4 12h4"
-                    />
-                  </svg>
-                </div>
-                <h3
-                  class="text-2xl font-heading font-bold mb-3 text-black group-hover:text-accent transition-colors"
-                >
-                  Works with any DAW
-                </h3>
-                <p class="text-black/60 leading-relaxed">
-                  Ableton, FL Studio, you name it. It uses MIDI to control
-                  everything.
-                </p>
-              </div>
-            </div>
-            <div
-              class="group relative p-8 rounded-3xl bg-white border border-black/10 hover:bg-white hover:border-accent/30 transition-all duration-500 overflow-hidden"
-            >
-              <div class="relative z-10">
-                <div
-                  class="w-14 h-14 rounded-2xl bg-base border border-black/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M8 9l4-4 4 4M8 15l4 4 4-4M4 12h16"
-                    />
-                  </svg>
-                </div>
-                <h3
-                  class="text-2xl font-heading font-bold mb-3 text-black group-hover:text-accent transition-colors"
-                >
-                  No Latency
-                </h3>
-                <p class="text-black/60 leading-relaxed">
-                  No latency, no delay. Just link your hands and start making
-                  music.
-                </p>
-              </div>
-            </div>
-            <div
-              class="group relative p-8 rounded-3xl bg-white border border-black/10 hover:bg-white hover:border-accent/30 transition-all duration-500 overflow-hidden"
-            >
-              <div class="relative z-10">
-                <div
-                  class="w-14 h-14 rounded-2xl bg-base border border-black/10 flex items-center justify-center text-accent mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M7 10l5 5 5-5M12 5v10"
-                    />
-                    <circle cx="12" cy="12" r="9" />
-                  </svg>
-                </div>
-                <h3
-                  class="text-2xl font-heading font-bold mb-3 text-black group-hover:text-accent transition-colors"
-                >
-                  No Extra Hardware Needed
-                </h3>
-                <p class="text-black/60 leading-relaxed">
-                  No gloves, sensors or expensive gear required. Use only your
-                  webcam.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="studio"
-        class="py-24 relative overflow-hidden bg-black/5 border-y border-black/5"
-      >
-        <div
-          class="max-w-7xl mx-auto px-6 relative z-10 flex flex-col items-center"
-        >
-          <div class="mb-12 text-center">
-            <h2
-              class="text-3xl md:text-4xl font-heading font-bold text-black mb-2"
-            >
-              See the control in action
-            </h2>
-            <p class="text-black/50">Check what Perez built with Maestrum</p>
-          </div>
-          <div
-            class="w-full max-w-4xl aspect-video relative bg-black/10 rounded-3xl border border-black/10 overflow-hidden shadow-md"
-          >
-            <iframe
-              class="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/8XGvAGfeQHI?si=mBIxAX_A-TMBcnxY"
-              title="Maestrum hand-tracking demo"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
-      <section id="pricing" class="py-32 px-6 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto relative z-10 text-center">
-          <h2
-            class="text-5xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight"
-          >
-            Join the <br />
-            Maestrum waitlist.
-          </h2>
-          <div class="mt-16 relative">
-            <div
-              class="bg-white border border-black/10 rounded-[3rem] p-12 md:p-16 flex flex-col items-center shadow-md relative overflow-hidden group"
-            >
-              <div
-                class="inline-block px-4 py-1 rounded-full border border-accent/50 bg-accent/10 text-accent text-sm font-bold uppercase tracking-wider mb-6"
-              >
-                Early Access
-              </div>
-              <div class="flex flex-col items-center gap-2 mb-8">
-                <span
-                  class="text-3xl md:text-4xl font-heading font-bold text-black"
-                  >Be first in line</span
-                >
-                <span class="text-base text-black/60"
-                  >Secure your spot before launch.</span
-                >
-              </div>
-              <ul class="flex flex-col gap-4 mb-12 text-left w-full max-w-xs">
-                <li class="flex items-center gap-3 text-black/80">
-                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-3.5 w-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-                  Priority onboarding when beta opens
-                </li>
-                <li class="flex items-center gap-3 text-black/80">
-                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-3.5 w-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-                  Early feature access & feedback loop
-                </li>
-                <li class="flex items-center gap-3 text-black/80">
-                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-3.5 w-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-                  Discounted price when beta opens
-                </li>
-                <li class="flex items-center gap-3 text-black/80">
-                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-3.5 w-3.5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="3"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-                  Unlimited gesture mapping
-                </li>
-              </ul>
-              <button
-                id="waitlist-btn-pricing"
-                class="w-full max-w-sm py-5 rounded-full bg-accent text-white font-heading font-bold text-xl hover:scale-105 hover:shadow-[0_0_30px_rgba(254,104,37,0.4)] transition-all duration-300"
-              >
-                Join the waitlist
-              </button>
-              <p class="mt-6 text-sm text-black/40">
-                Free to sign up. Get notified first.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- <section id="pricing" class="py-32 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#5E5E5E]/20 via-base to-[#FF6724]/10 opacity-60"></div>
-        <div
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 blur-[150px] rounded-full pointer-events-none"
-        ></div>
-        <div class="max-w-4xl mx-auto relative z-10 text-center">
-          <h2 class="text-5xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight">
-            Unlock your <br />
-            full potential.
-          </h2>
-          <div class="mt-16 relative">
-            <div
-              class="bg-white border border-black/10 rounded-[3rem] p-12 md:p-16 flex flex-col items-center shadow-md relative overflow-hidden group"
-            >
-              <div
-                class="inline-block px-4 py-1 rounded-full border border-accent/50 bg-accent/10 text-accent text-sm font-bold uppercase tracking-wider mb-6"
-              >
-                Lifetime License
-              </div>
-              <div class="flex items-baseline gap-2 mb-8">
-                <span class="text-6xl md:text-7xl font-heading font-bold text-white">$59</span>
-                <span class="text-xl text-white/60">one-time</span>
-              </div>
-              <ul class="flex flex-col gap-4 mb-12 text-left w-full max-w-xs">
-                <li class="flex items-center gap-3 text-black/80">
-                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-                  Works with any DAW
-                </li>
-                <li class="flex items-center gap-3 text-black/80">
-                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-                  Webcam-Based Control
-                </li>
-                <li class="flex items-center gap-3 text-black/80">
-                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-MacOS only support
-                </li>
-                <li class="flex items-center gap-3 text-black/80">
-                  <span class="bg-green-500/20 p-1 rounded-full text-green-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M20 6L9 17l-5-5" />
-                    </svg>
-                  </span>
-
-Unlimited Gesture Mapping
-                </li>
-              </ul>
-              <button
-                class="w-full max-w-sm py-5 rounded-full bg-white text-base font-heading font-bold text-xl hover:scale-105 hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transition-all duration-300"
-              >
-                Get Maestrum Today
-              </button>
-              <p class="mt-6 text-sm text-black/40">Pay once, own it forever.</p>
-            </div>
-          </div>
-        </div>
-      </section>  -->
-
-      <footer class="py-12 border-t border-black/10 bg-[#0a0a0a] relative z-10">
-        <div
-          class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
-        >
-          <div class="opacity-50">
-            <svg class="h-5 w-auto" viewBox="0 0 844.05 117.3" fill="#FE6825">
-              <g><path d="M33.51,0c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81H16.76v100.54H0V0h33.51ZM50.27,67.03V16.76h16.76v50.27h-16.76ZM83.79,0h33.51v117.3h-16.76V16.76h-33.51c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94Z"/><path d="M204.27,16.76h16.76v100.54h-16.76v-50.27h-50.27v50.27h-16.76V16.76c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94h50.27v16.76h-50.27v33.51h50.27V16.76Z"/><path d="M255.04,16.76v33.51c-4.58,0-8.52-1.65-11.81-4.94-3.3-3.29-4.94-7.23-4.94-11.81v-16.76c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94h67.03v16.76h-67.03ZM238.29,83.79c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94v33.51h67.03v16.76h-67.03c-4.58,0-8.52-1.65-11.81-4.94-3.3-3.29-4.94-7.23-4.94-11.81v-16.76ZM322.07,67.03h-67.03v-16.76h67.03v16.76Z"/><path d="M351.73,16.76v33.51c-4.58,0-8.52-1.65-11.81-4.94-3.3-3.29-4.94-7.23-4.94-11.81v-16.76c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94h67.03v16.76h-67.03ZM402,67.03h-50.27v-16.76h50.27c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81v33.51c0,4.58-1.65,8.52-4.94,11.81-3.3,3.3-7.23,4.94-11.81,4.94h-67.03v-16.76h67.03v-33.51Z"/><path d="M443.73,0c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81h-33.51V0h16.76ZM460.49,117.3V16.76h16.76v100.54h-16.76ZM494,0h16.76v16.76h-33.51c0-4.58,1.65-8.52,4.94-11.81,3.29-3.29,7.23-4.94,11.81-4.94Z"/><path d="M538.4,50.27h50.27v16.76h-50.27v50.27h-16.76V0h67.03c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81v16.76c0,4.58-1.65,8.52-4.94,11.81-3.3,3.3-7.24,4.94-11.81,4.94V16.76h-50.27v33.51ZM588.68,117.3v-50.27c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81v33.51h-16.76Z"/><path d="M640.29,100.54h50.27v16.76h-50.27c-4.58,0-8.52-1.65-11.81-4.94-3.3-3.29-4.94-7.23-4.94-11.81V0h16.76v100.54ZM690.56,0h16.76v100.54h-16.76V0Z"/><path d="M760.27,0c4.58,0,8.52,1.65,11.81,4.94,3.29,3.3,4.94,7.23,4.94,11.81h-33.51v100.54h-16.76V0h33.51ZM777.02,67.03V16.76h16.76v50.27h-16.76ZM810.54,0h33.51v117.3h-16.76V16.76h-33.51c0-4.58,1.65-8.52,4.94-11.81s7.23-4.94,11.81-4.94Z"/></g>
-            </svg>
-          </div>
-          <div class="flex flex-col items-center gap-2 text-sm">
-            <div class="flex gap-6 text-white/40 font-medium">
-              <a
-                href="https://twitter.com/pamonhero"
-                class="hover:text-white transition-colors"
-                >Twitter</a
-              >
-              <a
-                href="https://instagram.com/maestrum.io"
-                class="hover:text-white transition-colors"
-                >Instagram</a
-              >
-            </div>
-            <div
-              class="flex flex-wrap justify-center gap-4 text-xs text-white/40"
-            >
-              <a href="terms.html" class="hover:text-white transition-colors"
-                >Terms &amp; Conditions</a
-              >
-              <span class="hidden md:inline text-white/30">•</span>
-              <a href="privacy.html" class="hover:text-white transition-colors"
-                >Privacy Policy</a
-              >
-              <span class="hidden md:inline text-white/30">•</span>
-              <a href="refund.html" class="hover:text-white transition-colors"
-                >Refund Policy</a
-              >
-            </div>
-          </div>
-          <div class="text-sm text-white/30 text-center md:text-right">
-            Made for Creators. © 2025. MAESTRUM
-          </div>
-        </div>
-      </footer>
-    </div>
-
-    <!-- Waitlist Modal -->
-    <div id="waitlist-modal" class="modal-overlay">
-      <div class="modal-content">
-        <button id="modal-close" class="modal-close" aria-label="Close modal">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <iframe
-          data-tally-src="https://tally.so/embed/QK1zdG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="498"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="Join Maestrum Waitlist"
-        >
-        </iframe>
+      <div class="nav__actions">
+        <button onclick="openWaitlistModal()" class="btn btn-primary nav__cta">Join the waitlist</button>
       </div>
     </div>
+  </nav>
 
-    <script>
-      var d = document,
-        w = "https://tally.so/widgets/embed.js",
-        v = function () {
-          "undefined" != typeof Tally
-            ? Tally.loadEmbeds()
-            : d
-                .querySelectorAll("iframe[data-tally-src]:not([src])")
-                .forEach(function (e) {
-                  e.src = e.dataset.tallySrc;
-                });
-        };
-      if ("undefined" != typeof Tally) v();
-      else if (d.querySelector('script[src="' + w + '"]') == null) {
-        var s = d.createElement("script");
-        (s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s);
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="hero" id="hero">
+    <div class="hero__particles" id="creature-wrapper">
+      <div id="creature"></div>
+    </div>
+    <div class="container">
+      <div class="hero__inner">
+
+        <div class="hero__content">
+          <div class="hero__eyebrow">
+            <div class="hero__eyebrow-dot"></div>
+            <span class="label-pixel">Computer Vision · MIDI · Real-time</span>
+          </div>
+
+          <h1 class="hero__headline">
+            Your hands<br/>
+            become the<br/>
+            <em>instrument.</em>
+          </h1>
+
+          <p class="hero__sub">
+            Maestrum uses your webcam to capture hand movements in real time,
+            translating natural gesture into expressive music control. No
+            sensors, no gloves, no extra hardware required.
+          </p>
+
+          <div class="hero__actions">
+            <button onclick="openWaitlistModal()" class="btn btn-primary btn-lg">Join the waitlist</button>
+            <a href="#feel" class="btn btn-outline btn-lg">See how it works</a>
+          </div>
+
+          <p class="hero__note">Works with Ableton, FL Studio, Logic, and more.</p>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hand-diagram" aria-hidden="true">
+            <div class="hand-diagram__bg"></div>
+
+            <!-- Connecting lines SVG -->
+            <div class="hand-diagram__lines">
+              <svg viewBox="0 0 380 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Subtle arc lines suggesting gesture paths -->
+                <path d="M68 29  Q190 120 312 105" stroke="rgba(254,104,37,0.15)" stroke-width="1" stroke-dasharray="4 6"/>
+                <path d="M141 23 Q190 180 314 182" stroke="rgba(254,104,37,0.10)" stroke-width="1" stroke-dasharray="4 6"/>
+                <path d="M190 0  Q190 220 190 300"  stroke="rgba(254,104,37,0.08)" stroke-width="1" stroke-dasharray="3 8"/>
+                <circle cx="190" cy="280" r="60" stroke="rgba(254,104,37,0.06)" stroke-width="1" fill="none"/>
+                <circle cx="190" cy="280" r="110" stroke="rgba(254,104,37,0.04)" stroke-width="1" fill="none"/>
+              </svg>
+            </div>
+
+            <!-- Main symbol SVG -->
+            <svg viewBox="0 0 168.14 278.69" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g fill="black">
+                <g>
+                  <rect x="142.87" y="151.41" width="16.8" height="67.26" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="142.87; 142.32; 142.87" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="151.41; 153.28; 151.41" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="67.26; 97.54; 67.26" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="142.87" y="235.49" width="16.8" height="33.69" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="142.87; 142.32; 142.87" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="235.49; 264.76; 235.49" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="33.69; 13.93; 33.69" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="134.47" y="218.67" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="134.47; 133.95; 134.47" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="218.67; 250.82; 218.67" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="159.67" y="218.67" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="159.67; 159.07; 159.67" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="218.67; 250.82; 218.67" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                </g>
+
+                <g>
+                  <rect x="109.27" y="33.57" width="16.8" height="33.76" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="109.27; 108.83; 109.27" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="33.57; 27.87; 33.57" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="33.76; 97.54; 33.76" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="109.27" y="84.14" width="16.8" height="67.26" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="109.27; 108.83; 109.27" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="84.14; 139.35; 84.14" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="67.26; 13.93; 67.26" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="100.87" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="100.87; 100.46; 100.87" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="67.33; 125.41; 67.33" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="126.07" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="126.07; 125.58; 126.07" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="67.33; 125.41; 67.33" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                </g>
+
+                <g>
+                  <rect x="75.67" y="0" width="16.8" height="84.14" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="75.67; 75.35; 75.67" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="0; 0; 0" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="84.14; 97.54; 84.14" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="75.67" y="100.96" width="16.8" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="75.67; 75.35; 75.67" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="100.96; 111.48; 100.96" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="67.27" y="84.14" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="67.27; 66.97; 67.27" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="84.14; 97.54; 84.14" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="92.47" y="84.14" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="92.47; 92.09; 92.47" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="84.14; 97.54; 84.14" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                </g>
+
+                <g>
+                  <rect x="42.07" y="16.82" width="16.8" height="50.51" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="42.07; 41.86; 42.07" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="50.51; 97.54; 50.51" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="42.07" y="84.14" width="16.8" height="50.45" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="42.07; 41.86; 42.07" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="84.14; 125.41; 84.14" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="50.45; 13.93; 50.45" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="33.67" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="33.67; 33.49; 33.67" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="67.33; 111.48; 67.33" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="58.87" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="58.87; 58.6; 58.87" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="67.33; 111.48; 67.33" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                </g>
+
+                <g>
+                  <rect x="8.47" y="50.45" width="16.8" height="84.14" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="8.47; 8.37; 8.47" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="50.45; 41.8; 50.45" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="84.14; 97.54; 84.14" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="8.47" y="151.41" width="16.8" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="8.47; 8.37; 8.47" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="151.41; 153.28; 151.41" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="16.8; 16.74; 16.8" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="0.07" y="134.59" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="0.07; 0; 0.07" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="134.59; 139.35; 134.59" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                  <rect x="25.27" y="134.59" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                    <animate attributeName="x" values="25.27; 25.12; 25.27" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="y" values="134.59; 139.35; 134.59" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="width" values="8.4; 8.37; 8.4" dur="3s" repeatCount="indefinite" />
+                    <animate attributeName="height" values="16.82; 13.93; 16.82" dur="3s" repeatCount="indefinite" />
+                  </rect>
+                </g>
+              </g>
+            </svg>
+
+            <!-- Floating data points — fingertip tracking indicators -->
+            <div class="hand-diagram__point hand-diagram__point--1">
+              <div class="hand-diagram__point-dot"></div>
+              <span class="hand-diagram__point-label">pinky</span>
+            </div>
+            <div class="hand-diagram__point hand-diagram__point--2">
+              <div class="hand-diagram__point-dot"></div>
+              <span class="hand-diagram__point-label">ring</span>
+            </div>
+            <div class="hand-diagram__point hand-diagram__point--3">
+              <div class="hand-diagram__point-dot"></div>
+              <span class="hand-diagram__point-label">middle</span>
+            </div>
+            <div class="hand-diagram__point hand-diagram__point--4">
+              <div class="hand-diagram__point-dot"></div>
+              <span class="hand-diagram__point-label">index</span>
+            </div>
+            <div class="hand-diagram__point hand-diagram__point--5">
+              <div class="hand-diagram__point-dot"></div>
+              <span class="hand-diagram__point-label">thumb</span>
+            </div>
+
+            <!-- Corner metadata -->
+            <div class="hero__corner hero__corner--tl">
+              <span class="label-pixel">TRACKING<br/>ACTIVE</span>
+            </div>
+            <div class="hero__corner hero__corner--br">
+              <span class="label-pixel">60 FPS<br/>ZERO LATENCY</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       VALUE PROPOSITION
+       ===================================================== -->
+  <section class="value-prop" id="about">
+    <div class="container">
+      <div class="value-prop__inner value-prop__inner--centered">
+        <p class="value-prop__overline">What is Maestrum</p>
+        <h2 class="value-prop__heading">
+          Not a controller.<br/>
+          A new way to<br/>
+          perform music.
+        </h2>
+        <div class="value-prop__video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/8XGvAGfeQHI"
+            title="Maestrum — Perform music with movement"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       COMPATIBILITY
+       ===================================================== -->
+  <section class="compat" id="compat">
+    <div class="container">
+
+      <div class="compat__centered">
+        <p class="compat__overline">Setup &amp; Compatibility</p>
+        <h2 class="compat__title">Connect with</h2>
+
+        <div class="daw-icons daw-icons--centered">
+          <div class="daw-icon">
+            <img src="src/daw-icons/ableton_icon.png" alt="Ableton Live" width="64" height="64" loading="lazy" />
+            <span>Ableton Live</span>
+          </div>
+          <div class="daw-icon">
+            <img src="src/daw-icons/fl_icon.png" alt="FL Studio" width="64" height="64" loading="lazy" />
+            <span>FL Studio</span>
+          </div>
+          <div class="daw-icon">
+            <img src="src/daw-icons/logic_icon.png" alt="Logic Pro" width="64" height="64" loading="lazy" />
+            <span>Logic Pro</span>
+          </div>
+        </div>
+
+        <p class="compat__desc">
+          Maestrum can connect to Ableton, FL Studio, Logic, or any MIDI-compatible DAW.<br/>
+          Works on macOS and Windows. You only need a webcam.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       WHAT IT FEELS LIKE
+       ===================================================== -->
+  <section class="feel" id="feel">
+    <div class="container">
+      <div class="feel__header">
+        <p class="feel__overline">The Experience</p>
+        <h2 class="feel__title">
+          What it feels like<br/>
+          to use Maestrum
+        </h2>
+      </div>
+
+      <div class="feel__inner">
+
+        <div class="feel__left">
+          <div class="feel__grid-wrapper">
+            <div class="physics-grid" id="physicsGrid"></div>
+          </div>
+        </div>
+
+        <div class="feel__right">
+          <ul class="feel__list">
+            <li class="feel__item">
+              <span class="feel__item-index">01</span>
+              <span class="feel__item-text">You stop thinking about controls and start thinking about movement.</span>
+            </li>
+            <li class="feel__item">
+              <span class="feel__item-index">02</span>
+              <span class="feel__item-text">Your audience watches music being shaped in real time — and can't look away.</span>
+            </li>
+            <li class="feel__item">
+              <span class="feel__item-index">03</span>
+              <span class="feel__item-text">You explore textures and dynamics impossible to reach with knobs and sliders.</span>
+            </li>
+            <li class="feel__item">
+              <span class="feel__item-index">04</span>
+              <span class="feel__item-text">You feel physically connected to the music you're creating.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       SOCIAL PROOF / VIRAL POTENTIAL
+       ===================================================== -->
+  <section class="proof" id="proof">
+    <div class="container">
+      <div class="proof__inner">
+        <p class="proof__overline">Why It Travels</p>
+        <h2 class="proof__quote">
+          People don't just hear it.<br/>They see it.
+        </h2>
+        <p class="proof__sub">
+          Because Maestrum is visually immediate, content featuring it has strong natural appeal
+          on video platforms. Viewers understand it in seconds. Creators
+          share it because it's unlike anything else in a feed.
+        </p>
+
+        <div class="proof__stats">
+          <div class="proof-stat">
+            <p class="proof-stat__number">60<span>fps</span></p>
+            <p class="proof-stat__label">Real-time tracking</p>
+          </div>
+          <div class="proof-stat">
+            <p class="proof-stat__number">0<span>ms</span></p>
+            <p class="proof-stat__label">Perceived latency</p>
+          </div>
+          <div class="proof-stat">
+            <p class="proof-stat__number">21<span>pts</span></p>
+            <p class="proof-stat__label">Hand landmarks tracked</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       QUICK START
+       ===================================================== -->
+  <section class="quickstart" id="quickstart">
+    <div class="container">
+      <div class="quickstart__inner">
+        <p class="quickstart__overline">Quick Start</p>
+        <h2 class="quickstart__title">Up and running<br/>in three steps.</h2>
+
+        <ol class="quickstart__timeline">
+          <li class="qs-step">
+            <div class="qs-step__marker">
+              <span class="qs-step__num">01</span>
+              <div class="qs-step__line"></div>
+            </div>
+            <div class="qs-step__body">
+              <h3 class="qs-step__title">Add Maestrum as MIDI input in your DAW</h3>
+              <p class="qs-step__desc">Open your DAW's MIDI settings and select Maestrum as a virtual MIDI input. Works with Ableton, FL Studio, Logic, and any MIDI compatible software.</p>
+            </div>
+          </li>
+          <li class="qs-step">
+            <div class="qs-step__marker">
+              <span class="qs-step__num">02</span>
+              <div class="qs-step__line"></div>
+            </div>
+            <div class="qs-step__body">
+              <h3 class="qs-step__title">Map the control you want to change</h3>
+              <p class="qs-step__desc">Assign any hand gesture to any parameter: filter cutoff, reverb depth, volume, effects. If your DAW can automate it, Maestrum can drive it.</p>
+            </div>
+          </li>
+          <li class="qs-step">
+            <div class="qs-step__marker">
+              <span class="qs-step__num">03</span>
+            </div>
+            <div class="qs-step__body">
+              <h3 class="qs-step__title">Start playing!</h3>
+              <p class="qs-step__desc">Move your hands. Shape your sound. Your webcam does the rest — no cables, no latency, no interruptions to your creative flow.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       WAITLIST CTA
+       ===================================================== -->
+  <section class="waitlist" id="waitlist">
+    <div class="container">
+      <div class="waitlist__inner">
+        <p class="waitlist__overline">Early Access</p>
+        <h2 class="waitlist__title">
+          Be first to<br/>perform with Maestrum.
+        </h2>
+        <p class="waitlist__sub">
+          Join the waitlist to receive early access, product updates,
+          and launch news. No spam — just the moment it's ready.
+        </p>
+
+        <button onclick="openWaitlistModal()" class="btn btn-primary btn-lg">Get early access</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       FINAL CTA
+       ===================================================== -->
+  <section class="final-cta" id="final">
+    <div class="container">
+      <div class="final-cta__inner">
+        <p class="final-cta__overline">Maestrum</p>
+        <h2 class="final-cta__headline">
+          Perform music in a<br/>way people can <em>see.</em>
+        </h2>
+        <button onclick="openWaitlistModal()" class="btn btn-primary btn-lg">Join the waitlist</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       WAITLIST MODAL
+       ===================================================== -->
+  <div id="waitlist-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Join Maestrum Waitlist">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeWaitlistModal()" aria-label="Close">&times;</button>
+      <iframe
+        data-tally-src="https://tally.so/embed/QK1zdG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="498"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Join Maestrum Waitlist"
+      ></iframe>
+    </div>
+  </div>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <img class="footer__logo" src="src/logo/logotipo.svg" alt="Maestrum" />
+
+        <ul class="footer__links">
+          <li><a href="#about">Demo</a></li>
+          <li><a href="#compat">Compatibility</a></li>
+          <li><a href="#quickstart">Quick Start</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+
+        <p class="footer__copy">&copy; 2026 Maestrum. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =====================================================
+       SCRIPT — Minimal waitlist handling
+       ===================================================== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@4.0.2/lib/anime.iife.min.js"></script>
+  <script src="particle-blob.js"></script>
+  <script src="physics-grid.js"></script>
+  <script>
+    // SVG hand animation fallback for environments where SMIL is unreliable.
+    (function () {
+      var handSvg = document.querySelector('.hand-diagram > svg[aria-hidden="true"]');
+      if (!handSvg) return;
+
+      var rects = Array.from(handSvg.querySelectorAll('rect'));
+      var defs = rects.map(function (rect) {
+        var anims = Array.from(rect.querySelectorAll('animate'));
+        var attrs = {};
+        anims.forEach(function (anim) {
+          var name = anim.getAttribute('attributeName');
+          var values = (anim.getAttribute('values') || '')
+            .split(';')
+            .map(function (v) { return parseFloat(v.trim()); })
+            .filter(function (v) { return !Number.isNaN(v); });
+          if (name && values.length >= 2) attrs[name] = values;
+        });
+        return { rect: rect, attrs: attrs };
+      }).filter(function (d) { return Object.keys(d.attrs).length > 0; });
+
+      if (!defs.length) return;
+
+      var DURATION_MS = 3000;
+      var start = performance.now();
+
+      function lerp(a, b, t) {
+        return a + (b - a) * t;
       }
-    </script>
 
-    <script>
-      const navbar = document.getElementById("navbar");
-      const navShell = document.getElementById("nav-shell");
+      function frame(now) {
+        var phase = ((now - start) % DURATION_MS) / DURATION_MS; // 0..1
+        var seg = phase < 0.5 ? 0 : 1;
+        var localT = seg === 0 ? (phase / 0.5) : ((phase - 0.5) / 0.5);
 
-      const handleScroll = () => {
-        const scrolled = window.scrollY > 50;
-        navShell.classList.toggle("nav-glass", scrolled);
-      };
+        defs.forEach(function (def) {
+          Object.keys(def.attrs).forEach(function (attr) {
+            var values = def.attrs[attr];
+            var a = values[Math.min(seg, values.length - 1)];
+            var b = values[Math.min(seg + 1, values.length - 1)];
+            var v = lerp(a, b, localT);
+            def.rect.setAttribute(attr, v.toFixed(2));
+          });
+        });
 
-      handleScroll();
-
-      window.addEventListener("scroll", handleScroll);
-
-      // Waitlist Modal
-      const waitlistModal = document.getElementById("waitlist-modal");
-      const modalClose = document.getElementById("modal-close");
-      const waitlistBtnNav = document.getElementById("waitlist-btn-nav");
-      const waitlistBtnPricing = document.getElementById(
-        "waitlist-btn-pricing"
-      );
-
-      const openModal = () => {
-        waitlistModal.classList.add("active");
-        document.body.style.overflow = "hidden";
-      };
-
-      const closeModal = () => {
-        waitlistModal.classList.remove("active");
-        document.body.style.overflow = "";
-      };
-
-      // Open modal when clicking any waitlist button
-      if (waitlistBtnNav) {
-        waitlistBtnNav.addEventListener("click", openModal);
-      }
-      if (waitlistBtnPricing) {
-        waitlistBtnPricing.addEventListener("click", openModal);
+        requestAnimationFrame(frame);
       }
 
-      // Close modal
-      if (modalClose) {
-        modalClose.addEventListener("click", closeModal);
-      }
+      requestAnimationFrame(frame);
+    })();
 
-      // Close modal when clicking outside
-      waitlistModal.addEventListener("click", (e) => {
-        if (e.target === waitlistModal) {
-          closeModal();
-        }
-      });
+    // Modal
+    var modal = document.getElementById('waitlist-modal');
+    function openWaitlistModal() {
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      // Load Tally embeds on first open
+      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc;});};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+    }
+    function closeWaitlistModal() {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    // Close on backdrop click
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeWaitlistModal();
+    });
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeWaitlistModal();
+    });
+  </script>
 
-      // Close modal with Escape key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && waitlistModal.classList.contains("active")) {
-          closeModal();
-        }
-      });
-    </script>
-  </body>
+</body>
 </html>
