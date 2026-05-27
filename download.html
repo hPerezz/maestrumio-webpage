@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download Maestrum</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Download page layout ─────────────────────────────── */
+    .dl-page {
+      min-height: 100vh;
+      background: var(--offwhite);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dl-nav {
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      background: var(--offwhite);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .dl-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px 80px;
+      gap: 0;
+    }
+
+    /* ── Hero greeting ────────────────────────────────────── */
+    .dl-hero {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: 840px;
+      width: 100%;
+      margin-bottom: 56px;
+    }
+
+    .dl-hero__symbol {
+      width: 120px;
+      height: 200px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .dl-hero__symbol svg {
+      width: 100%;
+      height: auto;
+      fill: var(--orange);
+    }
+
+    .dl-hero__content {}
+
+    .dl-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .dl-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    .dl-greeting {
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+
+    .dl-greeting em {
+      font-style: italic;
+      color: var(--orange);
+    }
+
+    .dl-message {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--gray);
+      max-width: 480px;
+      border-left: 2px solid var(--orange);
+      padding-left: 20px;
+      margin-top: 4px;
+    }
+
+    /* ── Download card ────────────────────────────────────── */
+    .dl-card {
+      max-width: 840px;
+      width: 100%;
+      background: var(--black);
+      border-radius: 6px;
+      padding: 52px 56px;
+      color: var(--offwhite);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .dl-card__left {}
+
+    .dl-os-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(254,104,37,0.12);
+      border: 1px solid rgba(254,104,37,0.3);
+      border-radius: 3px;
+      padding: 6px 12px;
+      margin-bottom: 24px;
+    }
+
+    .dl-os-badge__dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .dl-os-badge__text {
+      font-family: var(--font-pixel);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+    }
+
+    .dl-title {
+      font-size: clamp(22px, 2.5vw, 32px);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      color: var(--offwhite);
+    }
+
+    .dl-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(244, 243, 239, 0.5);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .dl-direct-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--orange);
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 3px;
+      font-weight: 500;
+      font-size: 15px;
+      font-family: var(--font-body);
+      text-decoration: none;
+      transition: background 0.18s ease, transform 0.15s ease;
+      cursor: pointer;
+    }
+
+    .dl-direct-link:hover {
+      background: #e85a18;
+      transform: translateY(-1px);
+    }
+
+    .dl-direct-link svg {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .dl-other-platforms {
+      margin-top: 20px;
+    }
+
+    .dl-other-platforms__label {
+      font-family: var(--font-pixel);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      color: rgba(244, 243, 239, 0.3);
+      margin-bottom: 10px;
+    }
+
+    .dl-other-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .dl-other-link {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(244, 243, 239, 0.45);
+      text-decoration: none;
+      border: 1px solid rgba(244, 243, 239, 0.1);
+      padding: 5px 12px;
+      border-radius: 3px;
+      transition: color 0.15s, border-color 0.15s;
+      font-family: var(--font-body);
+    }
+
+    .dl-other-link:hover {
+      color: var(--offwhite);
+      border-color: rgba(244, 243, 239, 0.3);
+    }
+
+    /* ── Countdown ring ───────────────────────────────────── */
+    .dl-card__right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .dl-countdown-wrap {
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+
+    .dl-countdown-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
+    .dl-countdown-bg {
+      fill: none;
+      stroke: rgba(244, 243, 239, 0.08);
+      stroke-width: 3;
+    }
+
+    .dl-countdown-ring {
+      fill: none;
+      stroke: var(--orange);
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 276.46;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 1s linear;
+    }
+
+    .dl-countdown-number {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-orbitron);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--offwhite);
+      letter-spacing: -0.02em;
+    }
+
+    .dl-countdown-label {
+      font-family: var(--font-pixel);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      color: rgba(244, 243, 239, 0.35);
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* ── Tutorial section ─────────────────────────────────── */
+    .dl-tutorial {
+      max-width: 840px;
+      width: 100%;
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .dl-tutorial__left {}
+
+    .dl-tutorial__overline {
+      font-family: var(--font-pixel);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+
+    .dl-tutorial__title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--black);
+    }
+
+    .dl-tutorial__sub {
+      font-size: 14px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .dl-tutorial-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border: 1.5px solid var(--black);
+      border-radius: 3px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--black);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .dl-tutorial-btn:hover {
+      background: var(--black);
+      color: var(--offwhite);
+    }
+
+    /* ── Not found state ──────────────────────────────────── */
+    .dl-notfound {
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .dl-notfound h1 {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .dl-notfound p {
+      font-size: 17px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    .dl-footer {
+      padding: 28px 40px;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .dl-footer__copy {
+      font-size: 12px;
+      color: var(--gray);
+      opacity: 0.5;
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 720px) {
+      .dl-nav { padding: 0 24px; }
+      .dl-footer { padding: 24px; }
+
+      .dl-hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .dl-hero__symbol {
+        width: 72px;
+        height: 120px;
+        margin: 0 auto;
+      }
+
+      .dl-message {
+        border-left: none;
+        padding-left: 0;
+        border-top: 2px solid var(--orange);
+        padding-top: 16px;
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .dl-eyebrow { justify-content: center; }
+
+      .dl-card {
+        grid-template-columns: 1fr;
+        padding: 36px 28px;
+        gap: 36px;
+      }
+
+      .dl-card__right {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+      }
+
+      .dl-tutorial {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body class="dl-page">
+
+  <!-- Nav -->
+  <nav class="dl-nav">
+    <a href="/" aria-label="Maestrum home">
+      <img src="src/logo/logotipo.svg" alt="Maestrum" style="height: 22px; width: auto;" />
+    </a>
+  </nav>
+
+  <!-- Main -->
+  <main class="dl-main" id="dl-main">
+
+    <!-- Loading placeholder -->
+    <div id="dl-loading" style="color: var(--gray); font-family: var(--font-pixel); font-size: 11px; letter-spacing: 0.12em;">
+      LOADING...
+    </div>
+
+    <!-- Content (hidden until loaded) -->
+    <div id="dl-content" style="display:none; width:100%; display:none; flex-direction:column; align-items:center; gap:0;">
+
+      <!-- Greeting -->
+      <div class="dl-hero">
+        <div class="dl-hero__symbol">
+          <!-- Maestrum hand symbol -->
+          <svg viewBox="0 0 168.14 278.69" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="currentColor">
+              <g>
+                <rect x="142.87" y="151.41" width="16.8" height="67.26" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="151.41;153.28;151.41" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="height" values="67.26;97.54;67.26" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="142.87" y="235.49" width="16.8" height="33.69" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="235.49;264.76;235.49" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="height" values="33.69;13.93;33.69" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="134.47" y="218.67" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="218.67;250.82;218.67" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="159.67" y="218.67" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="218.67;250.82;218.67" dur="3s" repeatCount="indefinite"/>
+                </rect>
+              </g>
+              <g>
+                <rect x="109.27" y="33.57" width="16.8" height="33.76" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="33.57;27.87;33.57" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="height" values="33.76;97.54;33.76" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="109.27" y="84.14" width="16.8" height="67.26" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="84.14;139.35;84.14" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="height" values="67.26;13.93;67.26" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="100.87" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="67.33;125.41;67.33" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="126.07" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="67.33;125.41;67.33" dur="3s" repeatCount="indefinite"/>
+                </rect>
+              </g>
+              <g>
+                <rect x="75.67" y="0" width="16.8" height="84.14" rx="4.2" ry="4.2">
+                  <animate attributeName="height" values="84.14;97.54;84.14" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="75.67" y="100.96" width="16.8" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="100.96;111.48;100.96" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="67.27" y="84.14" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="84.14;97.54;84.14" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="92.47" y="84.14" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="84.14;97.54;84.14" dur="3s" repeatCount="indefinite"/>
+                </rect>
+              </g>
+              <g>
+                <rect x="42.07" y="16.82" width="16.8" height="50.51" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="16.82;13.93;16.82" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="height" values="50.51;97.54;50.51" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="42.07" y="84.14" width="16.8" height="50.45" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="84.14;125.41;84.14" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="height" values="50.45;13.93;50.45" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="33.67" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="67.33;111.48;67.33" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="58.87" y="67.33" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="67.33;111.48;67.33" dur="3s" repeatCount="indefinite"/>
+                </rect>
+              </g>
+              <g>
+                <rect x="8.47" y="50.45" width="16.8" height="84.14" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="50.45;41.8;50.45" dur="3s" repeatCount="indefinite"/>
+                  <animate attributeName="height" values="84.14;97.54;84.14" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="8.47" y="151.41" width="16.8" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="151.41;153.28;151.41" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="0.07" y="134.59" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="134.59;139.35;134.59" dur="3s" repeatCount="indefinite"/>
+                </rect>
+                <rect x="25.27" y="134.59" width="8.4" height="16.82" rx="4.2" ry="4.2">
+                  <animate attributeName="y" values="134.59;139.35;134.59" dur="3s" repeatCount="indefinite"/>
+                </rect>
+              </g>
+            </g>
+          </svg>
+        </div>
+
+        <div class="dl-hero__content">
+          <div class="dl-eyebrow">
+            <div class="dl-eyebrow-dot"></div>
+            <span class="label-pixel" id="dl-eyebrow-text">EXCLUSIVE PRE-RELEASE</span>
+          </div>
+          <h1 class="dl-greeting">
+            <span id="dl-greeting-word">Hey,</span> <em id="dl-name">there</em>.
+          </h1>
+          <p class="dl-message" id="dl-message"></p>
+        </div>
+      </div>
+
+      <!-- Download card -->
+      <div class="dl-card">
+        <div class="dl-card__left">
+          <div class="dl-os-badge">
+            <div class="dl-os-badge__dot"></div>
+            <span class="dl-os-badge__text" id="dl-os-detected">DETECTING OS...</span>
+          </div>
+
+          <h2 class="dl-title" id="dl-card-title">Maestrum</h2>
+          <p class="dl-subtitle" id="dl-card-subtitle">Pre-release build · Your exclusive copy</p>
+
+          <a id="dl-primary-btn" class="dl-direct-link" href="#" download>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span id="dl-btn-text">Download</span>
+          </a>
+
+          <div class="dl-other-platforms" id="dl-other-wrap">
+            <p class="dl-other-platforms__label" id="dl-also-label">ALSO AVAILABLE FOR</p>
+            <div class="dl-other-links" id="dl-other-links"></div>
+          </div>
+        </div>
+
+        <div class="dl-card__right">
+          <div class="dl-countdown-wrap" id="dl-countdown-wrap">
+            <svg class="dl-countdown-svg" viewBox="0 0 100 100">
+              <circle class="dl-countdown-bg" cx="50" cy="50" r="44"/>
+              <circle class="dl-countdown-ring" id="dl-ring" cx="50" cy="50" r="44"/>
+            </svg>
+            <div class="dl-countdown-number" id="dl-number">5</div>
+          </div>
+          <span class="dl-countdown-label" id="dl-countdown-label">AUTO DOWNLOAD</span>
+        </div>
+      </div>
+
+      <!-- Tutorial -->
+      <div class="dl-tutorial">
+        <div class="dl-tutorial__left">
+          <p class="dl-tutorial__overline" id="dl-tut-overline">QUICK START</p>
+          <p class="dl-tutorial__title" id="dl-tut-title">Up and running in 3 steps.</p>
+          <p class="dl-tutorial__sub" id="dl-tut-sub">Learn how to connect Maestrum to your DAW.</p>
+        </div>
+        <a id="dl-tutorial-btn" class="dl-tutorial-btn" href="#" target="_blank" rel="noopener">
+          <span id="dl-tut-btn-text">See tutorial</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+    </div><!-- /dl-content -->
+
+    <!-- Not found state -->
+    <div id="dl-notfound" style="display:none;" class="dl-notfound">
+      <p class="label-pixel" style="color:var(--orange); margin-bottom:20px;">MAESTRUM</p>
+      <h1>Invalid link.</h1>
+      <p id="dl-notfound-text">This download link is not valid. Please contact us to get your personal link.</p>
+      <a href="/" class="btn btn-primary btn-lg">Go back home</a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="dl-footer">
+    <img src="src/logo/logotipo.svg" alt="Maestrum" style="height: 16px; width: auto; opacity: 0.4;" />
+    <p class="dl-footer__copy" id="dl-footer-copy">&copy; 2026 Maestrum. All rights reserved.</p>
+  </footer>
+
+
+  <script>
+    /* ── i18n ──────────────────────────────────────────────── */
+    const LANG = (navigator.language || 'en').toLowerCase().startsWith('pt') ? 'pt' : 'en';
+
+    const T = {
+      en: {
+        eyebrow:        'EXCLUSIVE PRE-RELEASE',
+        greeting:       'Hey,',
+        cardTitle:      'Maestrum',
+        cardSubtitle:   'Pre-release build · Your exclusive copy',
+        btnText:        'Download for',
+        alsoLabel:      'ALSO AVAILABLE FOR',
+        countdownLabel: 'AUTO DOWNLOAD',
+        countdownDone:  'DOWNLOADING',
+        tutOverline:    'QUICK START',
+        tutTitle:       'Up and running in 3 steps.',
+        tutSub:         'Learn how to connect Maestrum to your DAW.',
+        tutBtn:         'See tutorial',
+        os: {
+          windows:    'Windows',
+          'mac-arm':  'macOS (Apple Silicon)',
+          'mac-intel':'macOS (Intel)',
+          'unknown':  'your platform',
+        },
+        notfound: 'This download link is not valid. Please contact us to get your personal link.',
+        footer: '© 2026 Maestrum. All rights reserved.',
+      },
+      pt: {
+        eyebrow:        'ACESSO EXCLUSIVO · PRÉ-LANÇAMENTO',
+        greeting:       'Olá,',
+        cardTitle:      'Maestrum',
+        cardSubtitle:   'Build pré-lançamento · Sua cópia exclusiva',
+        btnText:        'Baixar para',
+        alsoLabel:      'TAMBÉM DISPONÍVEL PARA',
+        countdownLabel: 'DOWNLOAD AUTOMÁTICO',
+        countdownDone:  'BAIXANDO',
+        tutOverline:    'INÍCIO RÁPIDO',
+        tutTitle:       'Funcionando em 3 passos.',
+        tutSub:         'Aprenda como conectar o Maestrum ao seu DAW.',
+        tutBtn:         'Ver tutorial',
+        os: {
+          windows:    'Windows',
+          'mac-arm':  'macOS (Apple Silicon)',
+          'mac-intel':'macOS (Intel)',
+          'unknown':  'sua plataforma',
+        },
+        notfound: 'Este link de download não é válido. Entre em contato para receber seu link pessoal.',
+        footer: '© 2026 Maestrum. Todos os direitos reservados.',
+      },
+    };
+
+    const t = T[LANG];
+
+    /* ── OS detection ──────────────────────────────────────── */
+    const DOWNLOADS = {
+      'windows':   'https://github.com/hPerezz/maestrumio-webpage/releases/download/v1.2.1/Maestrum-Setup-1.2.1.exe',
+      'mac-arm':   'https://github.com/hPerezz/maestrumio-webpage/releases/download/1.1.9/Maestrum-1.1.9-arm64-mac.dmg',
+      'mac-intel': 'https://github.com/hPerezz/maestrumio-webpage/releases/download/1.1.9/Maestrum-1.1.9-x64-mac.dmg',
+    };
+
+    function detectOS() {
+      const ua = navigator.userAgent;
+      if (/Win/i.test(ua)) return 'windows';
+      if (/Mac/i.test(ua)) {
+        // Try to detect Apple Silicon via userAgentData
+        const uad = navigator.userAgentData;
+        if (uad && uad.getHighEntropyValues) {
+          return uad.getHighEntropyValues(['architecture']).then(data => {
+            return data.architecture === 'arm' ? 'mac-arm' : 'mac-intel';
+          }).catch(() => 'mac-arm'); // default to arm for modern Macs
+        }
+        // Heuristic: Macs from ~2020+ are more likely arm, but we can't be sure
+        return Promise.resolve('mac-arm');
+      }
+      return Promise.resolve('unknown');
+    }
+
+    function getOtherOS(primary) {
+      const all = ['windows', 'mac-arm', 'mac-intel'];
+      return all.filter(os => os !== primary);
+    }
+
+    /* ── Countdown ─────────────────────────────────────────── */
+    const TOTAL_SECS = 5;
+    const CIRCUMFERENCE = 2 * Math.PI * 44; // ~276.46
+
+    function startCountdown(downloadUrl) {
+      const ring    = document.getElementById('dl-ring');
+      const numEl   = document.getElementById('dl-number');
+      const labelEl = document.getElementById('dl-countdown-label');
+      let remaining = TOTAL_SECS;
+
+      ring.style.strokeDashoffset = '0';
+      numEl.textContent = remaining;
+
+      const tick = setInterval(() => {
+        remaining--;
+
+        // Update ring
+        const progress = (TOTAL_SECS - remaining) / TOTAL_SECS;
+        ring.style.strokeDashoffset = (CIRCUMFERENCE * progress).toFixed(2);
+
+        if (remaining <= 0) {
+          clearInterval(tick);
+          numEl.textContent = '✓';
+          numEl.style.fontSize = '24px';
+          labelEl.textContent = t.countdownDone;
+          ring.style.stroke = '#4ade80';
+          // Trigger download
+          const a = document.createElement('a');
+          a.href = downloadUrl;
+          a.download = '';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        } else {
+          numEl.textContent = remaining;
+        }
+      }, 1000);
+    }
+
+    /* ── Apply translations ────────────────────────────────── */
+    function applyText() {
+      document.getElementById('dl-eyebrow-text').textContent    = t.eyebrow;
+      document.getElementById('dl-greeting-word').textContent   = t.greeting;
+      document.getElementById('dl-card-title').textContent      = t.cardTitle;
+      document.getElementById('dl-card-subtitle').textContent   = t.cardSubtitle;
+      document.getElementById('dl-also-label').textContent      = t.alsoLabel;
+      document.getElementById('dl-countdown-label').textContent = t.countdownLabel;
+      document.getElementById('dl-tut-overline').textContent    = t.tutOverline;
+      document.getElementById('dl-tut-title').textContent       = t.tutTitle;
+      document.getElementById('dl-tut-sub').textContent         = t.tutSub;
+      document.getElementById('dl-tut-btn-text').textContent    = t.tutBtn;
+      document.getElementById('dl-footer-copy').textContent     = t.footer;
+      document.getElementById('dl-notfound-text').textContent   = t.notfound;
+    }
+
+    /* ── Main init ─────────────────────────────────────────── */
+    async function init() {
+      applyText();
+
+      // Read ?user= from URL
+      const params   = new URLSearchParams(window.location.search);
+      const userKey  = (params.get('user') || '').toLowerCase().trim();
+
+      // Fetch users.json
+      let userData = null;
+      let defaults = { fast_tutorial_link: 'https://maestrum.io/#quickstart' };
+
+      try {
+        const res  = await fetch('users.json');
+        const data = await res.json();
+        defaults   = data.defaults || defaults;
+        if (userKey && data.users && data.users[userKey]) {
+          userData = data.users[userKey];
+        }
+      } catch (e) {
+        console.warn('Could not load users.json', e);
+      }
+
+      // Hide loading
+      document.getElementById('dl-loading').style.display = 'none';
+
+      if (!userKey || !userData) {
+        document.getElementById('dl-notfound').style.display = 'block';
+        return;
+      }
+
+      // Populate personal content
+      document.getElementById('dl-name').textContent = userData.name;
+
+      const msg = userData.personal_message;
+      const messageText = msg
+        ? (typeof msg === 'string' ? msg : (msg[LANG] || msg['en'] || ''))
+        : '';
+      if (messageText) {
+        document.getElementById('dl-message').textContent = messageText;
+      } else {
+        document.getElementById('dl-message').style.display = 'none';
+      }
+
+      // Tutorial link
+      const tutLink = userData.fast_tutorial_link || defaults.fast_tutorial_link;
+      document.getElementById('dl-tutorial-btn').href = tutLink;
+
+      // Detect OS
+      const osRaw = await detectOS();
+      const os    = typeof osRaw === 'string' ? osRaw : await osRaw;
+      const primaryOS = (os === 'unknown') ? 'windows' : os;
+      const dlUrl     = DOWNLOADS[primaryOS];
+
+      // OS badge
+      document.getElementById('dl-os-detected').textContent = t.os[primaryOS] || primaryOS;
+
+      // Primary button
+      const btnEl = document.getElementById('dl-primary-btn');
+      document.getElementById('dl-btn-text').textContent = t.btnText + ' ' + (t.os[primaryOS] || primaryOS);
+      btnEl.href = dlUrl;
+
+      // Other OS links
+      const otherOSList = getOtherOS(primaryOS);
+      const otherLinksEl = document.getElementById('dl-other-links');
+      otherOSList.forEach(altOS => {
+        const a = document.createElement('a');
+        a.href = DOWNLOADS[altOS];
+        a.className = 'dl-other-link';
+        a.textContent = t.os[altOS];
+        a.download = '';
+        otherLinksEl.appendChild(a);
+      });
+
+      // Show content
+      const content = document.getElementById('dl-content');
+      content.style.display = 'flex';
+
+      // Start countdown
+      startCountdown(dlUrl);
+    }
+
+    init();
+  </script>
+</body>
+</html>

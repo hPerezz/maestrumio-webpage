@@ -1,0 +1,39 @@
+{
+  "defaults": {
+    "fast_tutorial_link": "https://maestrum.io/#quickstart"
+  },
+  "users": {
+    "joao": {
+      "name": "João",
+      "fast_tutorial_link": null,
+      "personal_message": {
+        "en": "You were one of the first to believe in Maestrum. This build is yours — thank you for being here from the start.",
+        "pt": "Você foi um dos primeiros a acreditar no Maestrum. Esse build é seu — obrigado por estar aqui desde o início."
+      }
+    },
+    "pedro": {
+      "name": "Pedro",
+      "fast_tutorial_link": "https://www.youtube.com/watch?v=8XGvAGfeQHI",
+      "personal_message": {
+        "en": "Pedro, your feedback shaped what Maestrum became. Enjoy this early cut — you earned it.",
+        "pt": "Pedro, seu feedback moldou o que o Maestrum se tornou. Aproveite esse build antecipado — você merece."
+      }
+    },
+    "ana": {
+      "name": "Ana",
+      "fast_tutorial_link": null,
+      "personal_message": {
+        "en": "Ana, your energy on stage is exactly what Maestrum was built to amplify. Welcome to the pre-release.",
+        "pt": "Ana, sua energia no palco é exatamente o que o Maestrum foi feito para amplificar. Bem-vinda ao pré-lançamento."
+      }
+    },
+    "lucas": {
+      "name": "Lucas",
+      "fast_tutorial_link": null,
+      "personal_message": {
+        "en": "Lucas, thanks for the trust. This is still rough around the edges, but the core is real — let me know what you think.",
+        "pt": "Lucas, obrigado pela confiança. Ainda está em desenvolvimento, mas o coração do produto já está aqui — me conta o que você acha."
+      }
+    }
+  }
+}
