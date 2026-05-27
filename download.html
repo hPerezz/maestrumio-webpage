@@ -33,7 +33,6 @@
       align-items: center;
       justify-content: center;
       padding: 60px 24px 80px;
-      gap: 0;
     }
 
     /* ── Hero greeting ────────────────────────────────────── */
@@ -50,7 +49,6 @@
     .dl-hero__symbol {
       width: 120px;
       height: 200px;
-      position: relative;
       flex-shrink: 0;
     }
 
@@ -59,8 +57,6 @@
       height: auto;
       fill: var(--orange);
     }
-
-    .dl-hero__content {}
 
     .dl-eyebrow {
       display: flex;
@@ -110,13 +106,23 @@
       border-radius: 6px;
       padding: 52px 56px;
       color: var(--offwhite);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 48px;
-      align-items: center;
+      min-height: 240px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .dl-card__left {}
+    /* ── Card: idle state ─────────────────────────────────── */
+    .dl-card__idle {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .dl-card__idle.is-fading {
+      opacity: 0;
+      pointer-events: none;
+    }
 
     .dl-os-badge {
       display: inline-flex;
@@ -127,6 +133,7 @@
       border-radius: 3px;
       padding: 6px 12px;
       margin-bottom: 24px;
+      align-self: flex-start;
     }
 
     .dl-os-badge__dot {
@@ -155,34 +162,85 @@
     .dl-subtitle {
       font-size: 15px;
       font-weight: 300;
-      color: rgba(244, 243, 239, 0.5);
+      color: var(--offwhite);
+      opacity: 0.75;
       margin-bottom: 32px;
       line-height: 1.5;
     }
 
-    .dl-direct-link {
+    /* ── Windows driver notice ────────────────────────────── */
+    .dl-driver-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(254,104,37,0.08);
+      border: 1px solid rgba(254,104,37,0.25);
+      border-radius: 4px;
+      padding: 14px 16px;
+      margin-bottom: 28px;
+    }
+
+    .dl-driver-notice__icon {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      color: var(--orange);
+      margin-top: 1px;
+    }
+
+    .dl-driver-notice__body {}
+
+    .dl-driver-notice__text {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--offwhite);
+      opacity: 0.85;
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .dl-driver-notice__link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--orange);
+      text-decoration: none;
+      font-family: var(--font-pixel);
+      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.15s;
+    }
+
+    .dl-driver-notice__link:hover {
+      opacity: 0.75;
+    }
+
+    /* ── Download button ──────────────────────────────────── */
+    .dl-download-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       background: var(--orange);
       color: #fff;
-      padding: 16px 32px;
+      padding: 18px 36px;
       border-radius: 3px;
       font-weight: 500;
       font-size: 15px;
       font-family: var(--font-body);
       text-decoration: none;
-      transition: background 0.18s ease, transform 0.15s ease;
+      border: none;
       cursor: pointer;
+      transition: background 0.18s ease, transform 0.15s ease;
+      align-self: flex-start;
     }
 
-    .dl-direct-link:hover {
+    .dl-download-btn:hover {
       background: #e85a18;
       transform: translateY(-1px);
     }
 
-    .dl-direct-link svg {
-      display: inline-block;
+    .dl-download-btn svg {
       width: 16px;
       height: 16px;
       flex-shrink: 0;
@@ -196,7 +254,7 @@
       font-family: var(--font-pixel);
       font-size: 9px;
       letter-spacing: 0.1em;
-      color: rgba(244, 243, 239, 0.3);
+      color: rgba(244, 243, 239, 0.45);
       margin-bottom: 10px;
     }
 
@@ -209,9 +267,9 @@
     .dl-other-link {
       font-size: 12px;
       font-weight: 400;
-      color: rgba(244, 243, 239, 0.45);
+      color: rgba(244, 243, 239, 0.55);
       text-decoration: none;
-      border: 1px solid rgba(244, 243, 239, 0.1);
+      border: 1px solid rgba(244, 243, 239, 0.12);
       padding: 5px 12px;
       border-radius: 3px;
       transition: color 0.15s, border-color 0.15s;
@@ -220,124 +278,79 @@
 
     .dl-other-link:hover {
       color: var(--offwhite);
-      border-color: rgba(244, 243, 239, 0.3);
+      border-color: rgba(244, 243, 239, 0.35);
     }
 
-    /* ── Countdown ring ───────────────────────────────────── */
-    .dl-card__right {
-      display: flex;
+    /* ── Card: counting state ─────────────────────────────── */
+    .dl-card__counting {
+      display: none;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .dl-countdown-wrap {
-      position: relative;
-      width: 100px;
-      height: 100px;
-    }
-
-    .dl-countdown-svg {
-      width: 100%;
-      height: 100%;
-      transform: rotate(-90deg);
-    }
-
-    .dl-countdown-bg {
-      fill: none;
-      stroke: rgba(244, 243, 239, 0.08);
-      stroke-width: 3;
-    }
-
-    .dl-countdown-ring {
-      fill: none;
-      stroke: var(--orange);
-      stroke-width: 3;
-      stroke-linecap: round;
-      stroke-dasharray: 276.46;
-      stroke-dashoffset: 0;
-      transition: stroke-dashoffset 1s linear;
-    }
-
-    .dl-countdown-number {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      font-family: var(--font-orbitron);
-      font-size: 32px;
-      font-weight: 900;
-      color: var(--offwhite);
-      letter-spacing: -0.02em;
+      text-align: center;
+      min-height: 180px;
+      gap: 16px;
     }
 
-    .dl-countdown-label {
+    .dl-card__counting.is-visible {
+      display: flex;
+    }
+
+    .dl-counting-label {
       font-family: var(--font-pixel);
-      font-size: 9px;
-      letter-spacing: 0.1em;
-      color: rgba(244, 243, 239, 0.35);
-      text-align: center;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: rgba(244, 243, 239, 0.4);
       text-transform: uppercase;
     }
 
-    /* ── Tutorial section ─────────────────────────────────── */
-    .dl-tutorial {
-      max-width: 840px;
-      width: 100%;
-      margin-top: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 24px 0;
-      border-top: 1px solid rgba(0,0,0,0.07);
-      gap: 24px;
-      flex-wrap: wrap;
+    .dl-counting-number {
+      font-family: var(--font-orbitron);
+      font-size: 96px;
+      font-weight: 900;
+      color: var(--offwhite);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
     }
 
-    .dl-tutorial__left {}
+    .dl-counting-number.pop-in {
+      animation: popIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
 
-    .dl-tutorial__overline {
-      font-family: var(--font-pixel);
-      font-size: 9px;
-      letter-spacing: 0.12em;
+    @keyframes popIn {
+      from { transform: scale(0.6); opacity: 0; }
+      to   { transform: scale(1);   opacity: 1; }
+    }
+
+    .dl-counting-number.is-done {
       color: var(--orange);
-      margin-bottom: 6px;
+      font-size: 64px;
     }
 
-    .dl-tutorial__title {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      color: var(--black);
-    }
-
-    .dl-tutorial__sub {
-      font-size: 14px;
-      color: var(--gray);
-      margin-top: 2px;
-    }
-
-    .dl-tutorial-btn {
-      display: inline-flex;
+    /* Manual download link (shown after countdown) */
+    .dl-manual-link {
+      display: none;
       align-items: center;
       gap: 8px;
-      padding: 12px 24px;
-      border: 1.5px solid var(--black);
-      border-radius: 3px;
-      font-family: var(--font-body);
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--black);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(244, 243, 239, 0.5);
       text-decoration: none;
-      transition: background 0.15s, color 0.15s;
-      white-space: nowrap;
+      border-bottom: 1px solid rgba(244, 243, 239, 0.2);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+      font-family: var(--font-body);
+      margin-top: 4px;
     }
 
-    .dl-tutorial-btn:hover {
-      background: var(--black);
+    .dl-manual-link.is-visible {
+      display: inline-flex;
+    }
+
+    .dl-manual-link:hover {
       color: var(--offwhite);
+      border-color: rgba(244, 243, 239, 0.5);
     }
 
     /* ── Not found state ──────────────────────────────────── */
@@ -380,7 +393,7 @@
 
     /* ── Responsive ───────────────────────────────────────── */
     @media (max-width: 720px) {
-      .dl-nav { padding: 0 24px; }
+      .dl-nav    { padding: 0 24px; }
       .dl-footer { padding: 24px; }
 
       .dl-hero {
@@ -408,21 +421,11 @@
       .dl-eyebrow { justify-content: center; }
 
       .dl-card {
-        grid-template-columns: 1fr;
         padding: 36px 28px;
-        gap: 36px;
       }
 
-      .dl-card__right {
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 20px;
-      }
-
-      .dl-tutorial {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .dl-os-badge { align-self: flex-start; }
+      .dl-download-btn { align-self: stretch; justify-content: center; }
     }
   </style>
 </head>
@@ -438,18 +441,17 @@
   <!-- Main -->
   <main class="dl-main" id="dl-main">
 
-    <!-- Loading placeholder -->
+    <!-- Loading -->
     <div id="dl-loading" style="color: var(--gray); font-family: var(--font-pixel); font-size: 11px; letter-spacing: 0.12em;">
       LOADING...
     </div>
 
-    <!-- Content (hidden until loaded) -->
-    <div id="dl-content" style="display:none; width:100%; display:none; flex-direction:column; align-items:center; gap:0;">
+    <!-- Content -->
+    <div id="dl-content" style="display:none; width:100%; flex-direction:column; align-items:center;">
 
       <!-- Greeting -->
       <div class="dl-hero">
         <div class="dl-hero__symbol">
-          <!-- Maestrum hand symbol -->
           <svg viewBox="0 0 168.14 278.69" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <g fill="currentColor">
               <g>
@@ -546,8 +548,10 @@
       </div>
 
       <!-- Download card -->
-      <div class="dl-card">
-        <div class="dl-card__left">
+      <div class="dl-card" id="dl-card">
+
+        <!-- Idle state -->
+        <div class="dl-card__idle" id="dl-idle">
           <div class="dl-os-badge">
             <div class="dl-os-badge__dot"></div>
             <span class="dl-os-badge__text" id="dl-os-detected">DETECTING OS...</span>
@@ -556,14 +560,32 @@
           <h2 class="dl-title" id="dl-card-title">Maestrum</h2>
           <p class="dl-subtitle" id="dl-card-subtitle">Pre-release build · Your exclusive copy</p>
 
-          <a id="dl-primary-btn" class="dl-direct-link" href="#" download>
+          <!-- Windows driver notice (hidden by default) -->
+          <div class="dl-driver-notice" id="dl-driver-notice" style="display:none;">
+            <svg class="dl-driver-notice__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+            <div class="dl-driver-notice__body">
+              <p class="dl-driver-notice__text" id="dl-driver-text">
+                Windows requires additional drivers to run Maestrum.
+              </p>
+              <a href="src/How_To_Install_Drivers_Windows.pdf" target="_blank" rel="noopener" class="dl-driver-notice__link">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span id="dl-driver-link-text">DOWNLOAD DRIVER GUIDE (PDF)</span>
+              </a>
+            </div>
+          </div>
+
+          <button id="dl-download-btn" class="dl-download-btn">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
               <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
             <span id="dl-btn-text">Download</span>
-          </a>
+          </button>
 
           <div class="dl-other-platforms" id="dl-other-wrap">
             <p class="dl-other-platforms__label" id="dl-also-label">ALSO AVAILABLE FOR</p>
@@ -571,37 +593,25 @@
           </div>
         </div>
 
-        <div class="dl-card__right">
-          <div class="dl-countdown-wrap" id="dl-countdown-wrap">
-            <svg class="dl-countdown-svg" viewBox="0 0 100 100">
-              <circle class="dl-countdown-bg" cx="50" cy="50" r="44"/>
-              <circle class="dl-countdown-ring" id="dl-ring" cx="50" cy="50" r="44"/>
+        <!-- Counting state (shown after click) -->
+        <div class="dl-card__counting" id="dl-counting">
+          <span class="dl-counting-label" id="dl-counting-label">DOWNLOADING IN</span>
+          <span class="dl-counting-number" id="dl-count-num">3</span>
+          <a id="dl-manual-link" class="dl-manual-link" href="#" download>
+            <span id="dl-manual-text">Click here if download didn't start</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
-            <div class="dl-countdown-number" id="dl-number">5</div>
-          </div>
-          <span class="dl-countdown-label" id="dl-countdown-label">AUTO DOWNLOAD</span>
+          </a>
         </div>
-      </div>
 
-      <!-- Tutorial -->
-      <div class="dl-tutorial">
-        <div class="dl-tutorial__left">
-          <p class="dl-tutorial__overline" id="dl-tut-overline">QUICK START</p>
-          <p class="dl-tutorial__title" id="dl-tut-title">Up and running in 3 steps.</p>
-          <p class="dl-tutorial__sub" id="dl-tut-sub">Learn how to connect Maestrum to your DAW.</p>
-        </div>
-        <a id="dl-tutorial-btn" class="dl-tutorial-btn" href="#" target="_blank" rel="noopener">
-          <span id="dl-tut-btn-text">See tutorial</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"/>
-            <polyline points="12 5 19 12 12 19"/>
-          </svg>
-        </a>
-      </div>
+      </div><!-- /dl-card -->
 
     </div><!-- /dl-content -->
 
-    <!-- Not found state -->
+    <!-- Not found -->
     <div id="dl-notfound" style="display:none;" class="dl-notfound">
       <p class="label-pixel" style="color:var(--orange); margin-bottom:20px;">MAESTRUM</p>
       <h1>Invalid link.</h1>
@@ -624,153 +634,155 @@
 
     const T = {
       en: {
-        eyebrow:        'EXCLUSIVE PRE-RELEASE',
-        greeting:       'Hey,',
-        cardTitle:      'Maestrum',
-        cardSubtitle:   'Pre-release build · Your exclusive copy',
-        btnText:        'Download for',
-        alsoLabel:      'ALSO AVAILABLE FOR',
-        countdownLabel: 'AUTO DOWNLOAD',
-        countdownDone:  'DOWNLOADING',
-        tutOverline:    'QUICK START',
-        tutTitle:       'Up and running in 3 steps.',
-        tutSub:         'Learn how to connect Maestrum to your DAW.',
-        tutBtn:         'See tutorial',
+        eyebrow:       'EXCLUSIVE PRE-RELEASE',
+        greeting:      'Hey,',
+        cardTitle:     'Maestrum',
+        cardSubtitle:  'Pre-release build · Your exclusive copy',
+        btnText:       'Download for',
+        alsoLabel:     'ALSO AVAILABLE FOR',
+        countingLabel: 'DOWNLOADING IN',
+        countDone:     'done!',
+        manualText:    'Click here if download didn\'t start',
+        driverText:    'Windows requires additional drivers to run Maestrum.',
+        driverLink:    'DOWNLOAD DRIVER GUIDE (PDF)',
         os: {
-          windows:    'Windows',
-          'mac-arm':  'macOS (Apple Silicon)',
-          'mac-intel':'macOS (Intel)',
-          'unknown':  'your platform',
+          'windows':   'Windows',
+          'mac-arm':   'macOS (Apple Silicon)',
+          'mac-intel': 'macOS (Intel)',
+          'unknown':   'your platform',
         },
         notfound: 'This download link is not valid. Please contact us to get your personal link.',
-        footer: '© 2026 Maestrum. All rights reserved.',
+        footer:   '© 2026 Maestrum. All rights reserved.',
       },
       pt: {
-        eyebrow:        'ACESSO EXCLUSIVO · PRÉ-LANÇAMENTO',
-        greeting:       'Olá,',
-        cardTitle:      'Maestrum',
-        cardSubtitle:   'Build pré-lançamento · Sua cópia exclusiva',
-        btnText:        'Baixar para',
-        alsoLabel:      'TAMBÉM DISPONÍVEL PARA',
-        countdownLabel: 'DOWNLOAD AUTOMÁTICO',
-        countdownDone:  'BAIXANDO',
-        tutOverline:    'INÍCIO RÁPIDO',
-        tutTitle:       'Funcionando em 3 passos.',
-        tutSub:         'Aprenda como conectar o Maestrum ao seu DAW.',
-        tutBtn:         'Ver tutorial',
+        eyebrow:       'ACESSO EXCLUSIVO · PRÉ-LANÇAMENTO',
+        greeting:      'Olá,',
+        cardTitle:     'Maestrum',
+        cardSubtitle:  'Build pré-lançamento · Sua cópia exclusiva',
+        btnText:       'Baixar para',
+        alsoLabel:     'TAMBÉM DISPONÍVEL PARA',
+        countingLabel: 'BAIXANDO EM',
+        countDone:     'foi!',
+        manualText:    'Clique aqui se o download não iniciou',
+        driverText:    'O Windows precisa de drivers adicionais para rodar o Maestrum.',
+        driverLink:    'BAIXAR GUIA DE DRIVERS (PDF)',
         os: {
-          windows:    'Windows',
-          'mac-arm':  'macOS (Apple Silicon)',
-          'mac-intel':'macOS (Intel)',
-          'unknown':  'sua plataforma',
+          'windows':   'Windows',
+          'mac-arm':   'macOS (Apple Silicon)',
+          'mac-intel': 'macOS (Intel)',
+          'unknown':   'sua plataforma',
         },
         notfound: 'Este link de download não é válido. Entre em contato para receber seu link pessoal.',
-        footer: '© 2026 Maestrum. Todos os direitos reservados.',
+        footer:   '© 2026 Maestrum. Todos os direitos reservados.',
       },
     };
 
     const t = T[LANG];
 
-    /* ── OS detection ──────────────────────────────────────── */
+    /* ── Downloads ─────────────────────────────────────────── */
     const DOWNLOADS = {
       'windows':   'https://github.com/hPerezz/maestrumio-webpage/releases/download/v1.2.1/Maestrum-Setup-1.2.1.exe',
       'mac-arm':   'https://github.com/hPerezz/maestrumio-webpage/releases/download/1.1.9/Maestrum-1.1.9-arm64-mac.dmg',
       'mac-intel': 'https://github.com/hPerezz/maestrumio-webpage/releases/download/1.1.9/Maestrum-1.1.9-x64-mac.dmg',
     };
 
-    function detectOS() {
+    /* ── OS detection ──────────────────────────────────────── */
+    async function detectOS() {
       const ua = navigator.userAgent;
       if (/Win/i.test(ua)) return 'windows';
       if (/Mac/i.test(ua)) {
-        // Try to detect Apple Silicon via userAgentData
         const uad = navigator.userAgentData;
         if (uad && uad.getHighEntropyValues) {
-          return uad.getHighEntropyValues(['architecture']).then(data => {
+          try {
+            const data = await uad.getHighEntropyValues(['architecture']);
             return data.architecture === 'arm' ? 'mac-arm' : 'mac-intel';
-          }).catch(() => 'mac-arm'); // default to arm for modern Macs
+          } catch (_) {}
         }
-        // Heuristic: Macs from ~2020+ are more likely arm, but we can't be sure
-        return Promise.resolve('mac-arm');
+        return 'mac-arm';
       }
-      return Promise.resolve('unknown');
+      return 'unknown';
     }
 
-    function getOtherOS(primary) {
-      const all = ['windows', 'mac-arm', 'mac-intel'];
-      return all.filter(os => os !== primary);
-    }
+    /* ── Countdown (triggered on click) ───────────────────── */
+    function startDownloadSequence(downloadUrl) {
+      const idleEl    = document.getElementById('dl-idle');
+      const countEl   = document.getElementById('dl-counting');
+      const numEl     = document.getElementById('dl-count-num');
+      const labelEl   = document.getElementById('dl-counting-label');
+      const manualEl  = document.getElementById('dl-manual-link');
 
-    /* ── Countdown ─────────────────────────────────────────── */
-    const TOTAL_SECS = 5;
-    const CIRCUMFERENCE = 2 * Math.PI * 44; // ~276.46
+      // Fade out idle content
+      idleEl.classList.add('is-fading');
 
-    function startCountdown(downloadUrl) {
-      const ring    = document.getElementById('dl-ring');
-      const numEl   = document.getElementById('dl-number');
-      const labelEl = document.getElementById('dl-countdown-label');
-      let remaining = TOTAL_SECS;
+      setTimeout(() => {
+        idleEl.style.display = 'none';
+        countEl.classList.add('is-visible');
 
-      ring.style.strokeDashoffset = '0';
-      numEl.textContent = remaining;
+        // Sequence: 3 → 2 → "foi!" / "done!"
+        const steps = [
+          { text: '3', delay: 0 },
+          { text: '2', delay: 1000 },
+          { text: '1', delay: 2000 },
+          { text: t.countDone, done: true, delay: 3000 },
+        ];
 
-      const tick = setInterval(() => {
-        remaining--;
+        steps.forEach(({ text, done, delay }) => {
+          setTimeout(() => {
+            numEl.textContent = text;
+            // Restart pop-in animation
+            numEl.classList.remove('pop-in');
+            void numEl.offsetWidth; // reflow
+            numEl.classList.add('pop-in');
 
-        // Update ring
-        const progress = (TOTAL_SECS - remaining) / TOTAL_SECS;
-        ring.style.strokeDashoffset = (CIRCUMFERENCE * progress).toFixed(2);
+            if (done) {
+              numEl.classList.add('is-done');
+              labelEl.style.display = 'none';
 
-        if (remaining <= 0) {
-          clearInterval(tick);
-          numEl.textContent = '✓';
-          numEl.style.fontSize = '24px';
-          labelEl.textContent = t.countdownDone;
-          ring.style.stroke = '#4ade80';
-          // Trigger download
-          const a = document.createElement('a');
-          a.href = downloadUrl;
-          a.download = '';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-        } else {
-          numEl.textContent = remaining;
-        }
-      }, 1000);
+              // Trigger actual download
+              const a = document.createElement('a');
+              a.href = downloadUrl;
+              a.download = '';
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+
+              // Show manual fallback link shortly after
+              setTimeout(() => {
+                manualEl.classList.add('is-visible');
+              }, 600);
+            }
+          }, delay);
+        });
+      }, 300);
     }
 
     /* ── Apply translations ────────────────────────────────── */
     function applyText() {
-      document.getElementById('dl-eyebrow-text').textContent    = t.eyebrow;
-      document.getElementById('dl-greeting-word').textContent   = t.greeting;
-      document.getElementById('dl-card-title').textContent      = t.cardTitle;
-      document.getElementById('dl-card-subtitle').textContent   = t.cardSubtitle;
-      document.getElementById('dl-also-label').textContent      = t.alsoLabel;
-      document.getElementById('dl-countdown-label').textContent = t.countdownLabel;
-      document.getElementById('dl-tut-overline').textContent    = t.tutOverline;
-      document.getElementById('dl-tut-title').textContent       = t.tutTitle;
-      document.getElementById('dl-tut-sub').textContent         = t.tutSub;
-      document.getElementById('dl-tut-btn-text').textContent    = t.tutBtn;
-      document.getElementById('dl-footer-copy').textContent     = t.footer;
-      document.getElementById('dl-notfound-text').textContent   = t.notfound;
+      document.getElementById('dl-eyebrow-text').textContent  = t.eyebrow;
+      document.getElementById('dl-greeting-word').textContent = t.greeting;
+      document.getElementById('dl-card-title').textContent    = t.cardTitle;
+      document.getElementById('dl-card-subtitle').textContent = t.cardSubtitle;
+      document.getElementById('dl-also-label').textContent    = t.alsoLabel;
+      document.getElementById('dl-counting-label').textContent = t.countingLabel;
+      document.getElementById('dl-manual-text').textContent   = t.manualText;
+      document.getElementById('dl-driver-text').textContent   = t.driverText;
+      document.getElementById('dl-driver-link-text').textContent = t.driverLink;
+      document.getElementById('dl-footer-copy').textContent   = t.footer;
+      document.getElementById('dl-notfound-text').textContent = t.notfound;
     }
 
     /* ── Main init ─────────────────────────────────────────── */
     async function init() {
       applyText();
 
-      // Read ?user= from URL
-      const params   = new URLSearchParams(window.location.search);
-      const userKey  = (params.get('user') || '').toLowerCase().trim();
+      const params  = new URLSearchParams(window.location.search);
+      const userKey = (params.get('user') || '').toLowerCase().trim();
 
-      // Fetch users.json
       let userData = null;
-      let defaults = { fast_tutorial_link: 'https://maestrum.io/#quickstart' };
 
       try {
         const res  = await fetch('users.json');
         const data = await res.json();
-        defaults   = data.defaults || defaults;
         if (userKey && data.users && data.users[userKey]) {
           userData = data.users[userKey];
         }
@@ -778,7 +790,6 @@
         console.warn('Could not load users.json', e);
       }
 
-      // Hide loading
       document.getElementById('dl-loading').style.display = 'none';
 
       if (!userKey || !userData) {
@@ -786,7 +797,7 @@
         return;
       }
 
-      // Populate personal content
+      // Personal content
       document.getElementById('dl-name').textContent = userData.name;
 
       const msg = userData.personal_message;
@@ -799,42 +810,47 @@
         document.getElementById('dl-message').style.display = 'none';
       }
 
-      // Tutorial link
-      const tutLink = userData.fast_tutorial_link || defaults.fast_tutorial_link;
-      document.getElementById('dl-tutorial-btn').href = tutLink;
-
       // Detect OS
-      const osRaw = await detectOS();
-      const os    = typeof osRaw === 'string' ? osRaw : await osRaw;
-      const primaryOS = (os === 'unknown') ? 'windows' : os;
+      const os        = await detectOS();
+      const primaryOS = os === 'unknown' ? 'windows' : os;
       const dlUrl     = DOWNLOADS[primaryOS];
 
       // OS badge
       document.getElementById('dl-os-detected').textContent = t.os[primaryOS] || primaryOS;
 
-      // Primary button
-      const btnEl = document.getElementById('dl-primary-btn');
-      document.getElementById('dl-btn-text').textContent = t.btnText + ' ' + (t.os[primaryOS] || primaryOS);
-      btnEl.href = dlUrl;
+      // Button label
+      document.getElementById('dl-btn-text').textContent =
+        t.btnText + ' ' + (t.os[primaryOS] || primaryOS);
+
+      // Manual link href
+      document.getElementById('dl-manual-link').href = dlUrl;
+
+      // Windows driver notice
+      if (primaryOS === 'windows') {
+        document.getElementById('dl-driver-notice').style.display = 'flex';
+      }
 
       // Other OS links
-      const otherOSList = getOtherOS(primaryOS);
       const otherLinksEl = document.getElementById('dl-other-links');
-      otherOSList.forEach(altOS => {
-        const a = document.createElement('a');
-        a.href = DOWNLOADS[altOS];
-        a.className = 'dl-other-link';
-        a.textContent = t.os[altOS];
-        a.download = '';
-        otherLinksEl.appendChild(a);
-      });
+      ['windows', 'mac-arm', 'mac-intel']
+        .filter(k => k !== primaryOS)
+        .forEach(altOS => {
+          const a = document.createElement('a');
+          a.href      = DOWNLOADS[altOS];
+          a.className = 'dl-other-link';
+          a.textContent = t.os[altOS];
+          a.download  = '';
+          otherLinksEl.appendChild(a);
+        });
 
       // Show content
       const content = document.getElementById('dl-content');
       content.style.display = 'flex';
 
-      // Start countdown
-      startCountdown(dlUrl);
+      // Hook up download button — click triggers countdown
+      document.getElementById('dl-download-btn').addEventListener('click', () => {
+        startDownloadSequence(dlUrl);
+      });
     }
 
     init();

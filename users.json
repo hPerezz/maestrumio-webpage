@@ -34,6 +34,14 @@
         "en": "Lucas, thanks for the trust. This is still rough around the edges, but the core is real — let me know what you think.",
         "pt": "Lucas, obrigado pela confiança. Ainda está em desenvolvimento, mas o coração do produto já está aqui — me conta o que você acha."
       }
+    },
+    "acrobatik": {
+      "name": "Acrobatik",
+      "fast_tutorial_link": null,
+      "personal_message": {
+        "pt": "Salve Acrobatik. Você é um dos primeiros a usar o Maestrum. Se sinta parte disso. Um salve pra tudo que vc construiu até agora, e sou o verdadeiro fã do som que vc faz. Das BNPs, Vinhedo e Valinhos pra vida. By - perez.",
+        "en": "Hey Acrobatik. You're one of the first to use Maestrum. Feel like a part of it. Shoutout to everything you've built so far, I'm a true fan of the sound you make. From BNPs, Vinhedo and Valinhos to the world. By - perez."
+      }
     }
   }
 }
