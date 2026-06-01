@@ -35,6 +35,14 @@
         "pt": "Lucas, obrigado pela confiança. Ainda está em desenvolvimento, mas o coração do produto já está aqui — me conta o que você acha."
       }
     },
+    "cat-dealers": {
+      "name": "Cat Dealers",
+      "fast_tutorial_link": null,
+      "personal_message": {
+        "pt": "Salve Cat Dealers. Somos muito fãs do que vocês construíram e constroem todos os dias. Vimos vários momentos de mudanças com vocês, acompanhamos vocês desde o EDM do Moshe, e estamos animados para sentir o que vai vir nessa nova fase e jornada que vocês estão construindo. Espero que o Maestrum ajude nesse novo processo criativo, e que saia muito som irado com as suas patas! aliás, mãos* — Perez.",
+        "en": "Hey Cat Dealers. We're huge fans of everything you've built and keep building every day. We've witnessed so many milestone moments with you, followed you since Moshe's EDM days, and we're pumped to feel what's coming in this new phase and journey you're on. Hope Maestrum helps fuel this new creative process, and that a ton of amazing sound comes out with your paws! wait, hands* — Perez."
+      }
+    },
     "alka": {
       "name": "Alka",
       "fast_tutorial_link": null,
