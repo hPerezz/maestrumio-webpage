@@ -35,6 +35,14 @@
         "pt": "Lucas, obrigado pela confiança. Ainda está em desenvolvimento, mas o coração do produto já está aqui — me conta o que você acha."
       }
     },
+    "sterium": {
+      "name": "Sterium",
+      "fast_tutorial_link": null,
+      "personal_message": {
+        "pt": "Salve Sterium. Somos fãs do que você constrói, tanto nos seus sons quanto no que você vem desenvolvendo com a Bongo Rec. Espero que o Maestrum seja uma ferramenta útil nessa jornada criativa. Aproveite! — Perez.",
+        "en": "Hey Sterium. We're fans of what you build — both your sounds and everything you've been developing with Bongo Rec. Hope Maestrum becomes a useful tool in this creative journey. Enjoy! — Perez."
+      }
+    },
     "lugui": {
       "name": "Lugui",
       "fast_tutorial_link": null,
