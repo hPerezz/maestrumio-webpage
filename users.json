@@ -7,8 +7,16 @@
       "name": "João",
       "fast_tutorial_link": null,
       "personal_message": {
-        "en": "You were one of the first to believe in Maestrum. This build is yours — thank you for being here from the start.",
-        "pt": "Você foi um dos primeiros a acreditar no Maestrum. Esse build é seu — obrigado por estar aqui desde o início."
+        "en": "Thank you for coming to the workshop. We hope you create really cool things with Maestrum.",
+        "pt": "Obrigado por comparecer ao workshop. Esperamos que você crie coisas muito maneiras com o Maestrum."
+      }
+    },
+    "felipe": {
+      "name": "Felipe",
+      "fast_tutorial_link": null,
+      "personal_message": {
+        "en": "Thank you for coming to the workshop. We hope you create really cool things with Maestrum.",
+        "pt": "Obrigado por comparecer ao workshop. Esperamos que você crie coisas muito maneiras com o Maestrum."
       }
     },
     "pedro": {
